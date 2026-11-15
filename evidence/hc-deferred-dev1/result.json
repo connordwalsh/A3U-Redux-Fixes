@@ -1,0 +1,48 @@
+{
+  "accepted": true,
+  "scope": "Isolated deferred native HC lifecycle; no client UI acceptance",
+  "sha256": "005cebd3ab9664dbd75588a879c9a1526d3e425a373a71cb2b8308fbf01d5746",
+  "checks": {
+    "one_run": true,
+    "schema_valid": true,
+    "all_checks_once": true,
+    "checks_pass": true,
+    "no_errors": true
+  },
+  "records": [
+    [
+      "empty_waits",
+      true
+    ],
+    [
+      "duplicate_uses_worker",
+      true
+    ],
+    [
+      "late_leader_bound",
+      true
+    ],
+    [
+      "native_completed",
+      true
+    ],
+    [
+      "one_marta",
+      true
+    ],
+    [
+      "main_scope_preserved",
+      true
+    ],
+    [
+      "second_empty_waits",
+      true
+    ],
+    [
+      "deleted_scope_stops_worker",
+      true
+    ]
+  ],
+  "errors": [],
+  "malformed": []
+}

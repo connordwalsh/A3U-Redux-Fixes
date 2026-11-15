@@ -1,0 +1,4 @@
+onLoadName="Deferred High Command diagnostic";
+respawn=3;respawnDelay=2;disabledAI=0;briefing=0;debriefing=0;
+class Header {gameType=Coop;minPlayers=1;maxPlayers=1;};
+allowFunctionsLog=1;

@@ -11,7 +11,7 @@ def collect(path, leader):
     records, errors, malformed = [], [], []
     complete = 0
     for line in raw.decode('utf-8-sig', errors='replace').splitlines():
-        if re.search(r'Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|', line):
+        if re.search(r'\bError(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|', line, re.IGNORECASE):
             errors.append(line)
         if '[REDUX_HC] ' not in line:
             continue
