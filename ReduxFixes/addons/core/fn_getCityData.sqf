@@ -1,21 +1,68 @@
-// Ultimate 12.4.2 calls getCityData twice during startup. Its first call stores
-// [population, vehicle count, support, support] under each town's display name.
-// On the second call that array masks a numeric config-name population fallback.
-// Repair only this stale-array case before delegating to the installed native body.
-if (toLower worldName != "chernarusredux" || {isNil "server"}) exitWith {
-    _this call A3URF_fnc_originalGetCityData
+// Adapted from Antistasi Ultimate 12.4.2; see THIRD_PARTY_LICENSES.txt.
+#include "\x\a3a\addons\core\script_component.hpp"
+FIX_LINE_NUMBERS()
+if (toLower worldName != "chernarusredux") exitWith {_this call A3URF_fnc_originalGetCityData};
+params [["_isInit", false]];
+
+private _citiesX = [];
+private _citiesXData = [];
+
+private _mapInfo = call A3A_fnc_getMapInfo;
+private _townPopulations = getArray (_mapInfo/"population");
+private _disabledTowns = getArray (_mapInfo/"disabledTowns");
+{server setVariable [_x select 0,_x select 1]} forEach _townPopulations;
+private _hardCodedPopulation = _townPopulations isNotEqualTo [];
+
+private _cityConfigs = "(toLower getText (_x >> ""type"") in [""namecitycapital"",""namecity"",""namevillage"",""citycenter""]) &&
+!(getText (_x >> ""Name"") isEqualTo """") && !((configName _x) in _disabledTowns)"
+configClasses (configfile >> "CfgWorlds" >> worldName >> "Names");
+if (toLowerANSI worldName isEqualTo "blud_vidda") then {
+	private _rv133 = ("configName _x == 'DefaultKeyPoint32'" configClasses (configfile >> "CfgWorlds" >> worldName >> "Names")) select 0;
+	_cityConfigs pushBack _rv133; //RV-133, big city without city marker
 };
-private _mapInfo=call A3A_fnc_getMapInfo;
-{
-    _x params ["_key","_population"];
-    private _city=configFile >> "CfgWorlds" >> worldName >> "Names" >> _key;
-    if (!isClass _city || {!(_population isEqualType 0)} || {!finite _population} || {_population<0}) then {continue};
-    private _name=getText (_city >> "name");
-    private _old=server getVariable [_name,objNull];
-    if (_name!="" && {_old isEqualType []} && {count _old==4}) then {
-        // Remove only the stale display-name cache. Native initialization writes
-        // the configured numeric key and recreates the normal four-field array.
-        server setVariable [_name,nil];
+
+_cityConfigs apply {
+	private _nameX = getText (_x >> "Name");
+	private _sizeX = getNumber (_x >> "radiusA");
+	private _sizeY = getNumber (_x >> "radiusB");
+	private _size = [_sizeY, _sizeX] select (_sizeX > _sizeY);
+	private _pos = getArray (_x >> "position");
+	private _size = [_size, 400] select (_size < 400);
+	private _numCiv = 0;
+
+	if (_hardCodedPopulation) then
+	{
+		_numCiv = server getVariable [_nameX, server getVariable (configName _x)]; //backwards compat to config name based pop defines
+        // A previous initialization stores a four-field town row under the display
+        // name. Resolve that cache collision at the read, without mutating caches.
+        if (!isNil "_numCiv" && {_numCiv isEqualType []} && {count _numCiv == 4}) then {
+            _numCiv = server getVariable (configName _x);
+        };
+		if (isNil "_numCiv" || {!(_numCiv isEqualType 0)}) then
+		{
+            Error_1("Bad population count data for %1", _nameX);
+			_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
+		};
+	}
+	else {
+		_numCiv = (count (nearestObjects [_pos, ["house"], _size]));
+	};
+
+	_roads = nearestTerrainObjects [_pos, ["MAIN ROAD", "ROAD", "TRACK"], _size, true, true];
+	if (count _roads > 0) then {
+		// Move marker position to the nearest road, if any
+		_pos = _roads select 0;
+	};
+	_numVeh = (count _roads) min (_numCiv / 3);
+
+	private _info = [_numCiv, _numVeh, 75, 0];
+    _citiesX pushBack _nameX;
+    _citiesXData append [[_nameX, _info]]; // initial 75% gov, 0% rebel support
+	server setVariable [_nameX, _info, true];
+
+    if (_isInit) then {
+        [_nameX, _pos, _size] call A3A_fnc_initCities;
     };
-} forEach getArray (_mapInfo >> "population");
-_this call A3URF_fnc_originalGetCityData
+};
+
+[_citiesX, _citiesXData];

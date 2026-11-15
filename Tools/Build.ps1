@@ -14,6 +14,7 @@ if ($LASTEXITCODE -ne 0) {throw 'Configuration conversion failed'}
 if ($LASTEXITCODE -ne 0) {throw 'Addon packing failed'}
 Copy-Item -LiteralPath (Join-Path $packed 'a3urf_core.pbo') -Destination (Join-Path $output 'addons') -Force
 Copy-Item -LiteralPath (Join-Path $root 'ReduxFixes/mod.cpp') -Destination $output -Force
+Copy-Item -LiteralPath (Join-Path $root 'THIRD_PARTY_LICENSES.txt') -Destination $output -Force
 $inputs=@(Get-ChildItem (Join-Path $root 'ReduxFixes') -Recurse -File | ForEach-Object {
     @{Path=[IO.Path]::GetRelativePath($root,$_.FullName);SHA256=(Get-FileHash $_.FullName).Hash}
 })

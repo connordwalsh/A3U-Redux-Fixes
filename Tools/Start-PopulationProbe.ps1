@@ -2,14 +2,16 @@ param(
     [Parameter(Mandatory=$true)][string]$SteamLibrary,
     [Parameter(Mandatory=$true)][string]$ArmaTools,
     [ValidateSet('Baseline','Fixed')][string]$Mode='Fixed',
+    [ValidateSet('chernarusredux','Altis')][string]$World='chernarusredux',
     [ValidateRange(1024,65531)][int]$Port=5102
 )
 $ErrorActionPreference='Stop'
 $root=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $game=Join-Path $SteamLibrary 'steamapps/common/Arma 3'
 $profile=Join-Path $root ('.work/profiles/population-'+$Mode)
+if ($World -ne 'chernarusredux') {$profile+='-'+$World}
 if (Get-CimInstance Win32_Process | Where-Object {$_.Name -eq 'arma3server_x64.exe' -and $_.CommandLine -and $_.CommandLine.Contains($profile)}) {throw 'This probe is already running.'}
-$missionName='A3URF_Population_'+$Mode+'.chernarusredux'
+$missionName='A3URF_Population_'+$Mode+'.'+$World
 $stage=Join-Path $root ('.work/probe-stage/'+[guid]::NewGuid().ToString('N'))
 $mission=Join-Path $stage $missionName;$packed=Join-Path $stage 'packed'
 New-Item -ItemType Directory -Path $mission,$packed,$profile -Force | Out-Null
