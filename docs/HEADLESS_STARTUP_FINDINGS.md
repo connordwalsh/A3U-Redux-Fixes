@@ -22,3 +22,28 @@ Next evidence should record the live HC synchronization state and compare a
 controlled leader-present case. SmartMarker and missing-object records still
 need separate tracing. No Bohemia source files are redistributed here, and no
 engine module or manual-install file was changed.
+
+## Paired native-module diagnostic, 15 November 2026
+
+`evidence/hc-dev1` retains complete logs, launch identities and parsed results.
+Both dedicated servers loaded CBA, Ultimate, CUP Terrains Core and Redux, with
+zero connected players and without Infection or this compatibility addon.
+The fixtures create the installed native HC module and subordinate, then
+synchronize them in the same unscheduled block before its native script runs.
+Only the leader-present fixture adds a synchronized independent AI commander.
+
+- Empty leader list: reproduced the undefined `_leader` expression; the main
+  scope existed, but no commander was bound.
+- Leader present: the native scope bound to the commander and no error records
+  occurred in the complete log.
+- Both initialized a MARTA scope. Neither reproduced the campaign SmartMarker
+  or missing-object errors, so those require separate investigation.
+
+The collector requires exactly the two expected error records for the empty
+case and zero for the leader case. It rejects incomplete or extra runs and
+unexpected errors. The servers were stopped after checking their executable
+and dedicated profile identities. No production override was added.
+
+This establishes the native module's empty-synchronization failure in isolation.
+It does not yet establish the live synchronization state in the full campaign,
+prove that a connected player resolves all startup errors, or close RF-3.

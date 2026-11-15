@@ -1,0 +1,54 @@
+{
+  "accepted": true,
+  "scope": "Native module diagnostic, not campaign acceptance",
+  "leader_present": false,
+  "sha256": "8feaa00e41cd02befb5f50184669808b8f9672513ba38b2f7858241733fe1b5a",
+  "checks": {
+    "one_complete_run": true,
+    "dedicated_no_players": true,
+    "synchronization": true,
+    "scope_binding": true,
+    "expected_diagnostics": true
+  },
+  "records": [
+    [
+      "start",
+      false,
+      true,
+      0,
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ]
+    ],
+    [
+      "synchronized",
+      [
+        "HighCommandSubordinate"
+      ]
+    ],
+    [
+      "result",
+      false,
+      true,
+      false,
+      [
+        "HighCommandSubordinate"
+      ],
+      false,
+      0
+    ]
+  ],
+  "errors": [
+    "16:21:42 Error in expression <};",
+    "16:21:42   Error Undefined variable in expression: _leader"
+  ],
+  "malformed": []
+}
