@@ -1,0 +1,53 @@
+{
+  "accepted": false,
+  "guarded": false,
+  "scope": "Focused activation probe; intentional native errors required",
+  "sha256": "72057ed21b276b34a9b953a0580b244a87d672c07ab3fcfb02a754325c9e374f",
+  "checks": {
+    "one_run": true,
+    "schema": true,
+    "unknown_rejected": true,
+    "wrong_type_rejected": true,
+    "early_native": true,
+    "active_set_unchanged": true,
+    "active_result": true,
+    "empty_result": true,
+    "native_negative_diagnostics": false
+  },
+  "records": [
+    [
+      "early_native",
+      true
+    ],
+    [
+      "active_result",
+      0,
+      false
+    ],
+    [
+      "empty_result",
+      0,
+      false
+    ],
+    [
+      "unknown_rejected",
+      true
+    ],
+    [
+      "wrong_type_rejected",
+      true
+    ],
+    [
+      "active_set_unchanged",
+      true
+    ]
+  ],
+  "errors": [
+    "17:00:16 \"A3URF_Population_Fixed/BIS_fnc_log: [A3URF_fnc_originalSmartMarkers] Error: SmartMarker system has not been yet initialized.\"",
+    "17:00:19 \"A3URF_Population_Fixed/log: ERROR: [A3URF_fnc_originalActivateAddons] The function can be activated only during the mission init.\"",
+    "17:00:19 \"A3URF_Population_Fixed/log: ERROR: [A3URF_fnc_originalActivateAddons] The function can be activated only during the mission init.\"",
+    "17:00:19 \"A3URF_Population_Fixed/log: ERROR: [A3URF_fnc_originalActivateAddons] The function can be activated only during the mission init.\"",
+    "17:00:19 \"A3URF_Population_Fixed/log: ERROR: [A3URF_fnc_originalActivateAddons] The function can be activated only during the mission init.\""
+  ],
+  "malformed": []
+}

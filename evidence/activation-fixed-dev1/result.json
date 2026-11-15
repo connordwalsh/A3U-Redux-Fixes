@@ -1,0 +1,50 @@
+{
+  "accepted": true,
+  "guarded": true,
+  "scope": "Focused activation probe; intentional native errors required",
+  "sha256": "734c58bfc80532c4982f5beefceef2825fed2695aec8b19d7df9f98d3ace2a0e",
+  "checks": {
+    "one_run": true,
+    "schema": true,
+    "unknown_rejected": true,
+    "early_native": true,
+    "active_set_unchanged": true,
+    "wrong_type_rejected": true,
+    "active_result": true,
+    "empty_result": true,
+    "native_negative_diagnostics": true
+  },
+  "records": [
+    [
+      "early_native",
+      true
+    ],
+    [
+      "active_result",
+      2851,
+      true
+    ],
+    [
+      "empty_result",
+      2851,
+      true
+    ],
+    [
+      "unknown_rejected",
+      true
+    ],
+    [
+      "wrong_type_rejected",
+      true
+    ],
+    [
+      "active_set_unchanged",
+      true
+    ]
+  ],
+  "errors": [
+    "17:00:21 \"A3URF_Population_Fixed/log: ERROR: [A3URF_fnc_originalActivateAddons] The function can be activated only during the mission init.\"",
+    "17:00:21 \"A3URF_Population_Fixed/log: ERROR: [A3URF_fnc_originalActivateAddons] The function can be activated only during the mission init.\""
+  ],
+  "malformed": []
+}
