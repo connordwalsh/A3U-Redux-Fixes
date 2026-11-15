@@ -14,7 +14,7 @@ def collect(path):
     malformed = []
     errors = []
     for line in lines:
-        if re.search(r'\| Error \||Error in expression|Error position:|Error Undefined|Error Missing|Error Generic', line):
+        if re.search(r'\| Error \||Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|Error position:', line):
             errors.append(line)
         marker = '[REDUX_PRICING] ' if pricing else '[REDUX_POPULATION] '
         if marker not in line:

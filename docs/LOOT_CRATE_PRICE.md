@@ -23,8 +23,13 @@ Focused evidence in `evidence/pricing-dev1` tests all five campaign price option
 (100 through 500), a different faction crate class, discounts, the separate rally
 class, and calls before crate settings/faction data exist. The baseline fails
 seven of thirteen assertions; the fix passes all thirteen with no classified
-script/native errors. Full native save and process-restart refund validation is
-being collected in Infection's `codex/redux-pricing-validation` branch. No
+script/native errors. Altis native delegation passes two checks. Eight collector
+tests pass. Full native save and process-restart refund validation passes 11
+checks per phase: 1000 live funds plus one 100-money crate gives 1100 saved and
+restored funds. Evidence is in Infection's `codex/redux-pricing-validation`
+branch, `docs/research/REDUX_CRATE_VALUATION.md` and
+`evidence/sprint-4/redux-companion-price-*`. Both full campaign reports remain
+failed on 11 unrelated startup/object/vehicle-marker error records. No
 client/UI or overall release certification is implied.
 
 Run with `Tools/Start-PopulationProbe.ps1 -Suite Pricing -Mode Baseline|Fixed`
