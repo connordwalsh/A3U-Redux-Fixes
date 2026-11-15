@@ -1,0 +1,23 @@
+{
+  "accepted": true,
+  "scope": "Native logging diagnostic, not campaign acceptance",
+  "logging_enabled": false,
+  "sha256": "9c261d97ad574338acd2fcd8613079f6ed79dbb65a88685d6493c25594e19687",
+  "checks": {
+    "one_complete_run": true,
+    "native_state": true,
+    "expected_diagnostics": true
+  },
+  "records": [
+    [
+      "state",
+      0,
+      true,
+      0,
+      true,
+      false
+    ]
+  ],
+  "errors": [],
+  "malformed": []
+}

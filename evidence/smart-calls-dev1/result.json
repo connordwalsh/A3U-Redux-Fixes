@@ -1,0 +1,25 @@
+{
+  "accepted": true,
+  "scope": "Native logging diagnostic, not campaign acceptance",
+  "logging_enabled": true,
+  "fixed": true,
+  "altis": false,
+  "calls": true,
+  "sha256": "dd2049ddd4f926996fc9c11da95a765cfdf3a3b3472db2f3dadb436ab788dc51",
+  "checks": {
+    "one_complete_run": true,
+    "native_state": true,
+    "expected_diagnostics": true
+  },
+  "records": [
+    [
+      "uninitialized_request",
+      true,
+      true
+    ]
+  ],
+  "errors": [
+    "16:30:46 \"A3URF_Population_Fixed/BIS_fnc_log: [A3URF_fnc_originalSmartMarkers] Error: SmartMarker system has not been yet initialized.\""
+  ],
+  "malformed": []
+}
