@@ -14,11 +14,15 @@ class CfgFunctions {
         tag = "A3URF";
         class Compatibility {
             class originalGetCityData { file = "\x\a3a\addons\core\functions\init\fn_getCityData.sqf"; };
+            class originalVehiclePrice { file = "\x\a3a\addons\core\functions\REINF\fn_vehiclePrice.sqf"; };
         };
     };
     class A3A {
         class init {
             class getCityData { file = "\x\a3urf\addons\core\fn_getCityData.sqf"; };
+        };
+        class REINF {
+            class vehiclePrice { file = "\x\a3urf\addons\core\fn_vehiclePrice.sqf"; };
         };
     };
 };

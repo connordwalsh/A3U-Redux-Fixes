@@ -9,7 +9,10 @@ Infection gameplay.
   campaign errors and client acceptance remain open; see POPULATION_FIX.md.
 - RF-2: Investigate six short native vehicle-spawn markers. Not implemented.
 - RF-3: Classify native no-player High Command/SmartMarker startup errors. Open.
-- RF-4: Investigate native save-time ammunition-box pricing errors. Open.
+- RF-4: Correct loot-crate save value to the owner-approved configured price.
+  Thirteen focused and two Altis checks pass; full native refund/reload passes
+  eleven assertions per phase. Other campaign errors remain open.
+  See LOOT_CRATE_PRICE.md.
 
 No sprint or release gate is closed. Preserve original map/mod files, isolate
 tests and retain rejected reports. Do not suppress errors to make reports pass.

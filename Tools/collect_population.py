@@ -10,12 +10,13 @@ def collect(path):
     raw = Path(path).read_bytes()
     lines = raw.decode('utf-8-sig', errors='replace').splitlines()
     records = []
+    pricing = any('[REDUX_PRICING]' in line for line in lines)
     malformed = []
     errors = []
     for line in lines:
-        if re.search(r'\| Error \||Error in expression|Error position:|Error Undefined|Error Missing|Error Generic', line):
+        if re.search(r'\| Error \||Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|Error position:', line):
             errors.append(line)
-        marker = '[REDUX_POPULATION] '
+        marker = '[REDUX_PRICING] ' if pricing else '[REDUX_POPULATION] '
         if marker not in line:
             continue
         payload = line.split(marker, 1)[1]
@@ -40,7 +41,20 @@ def collect(path):
              and set(names) == expected and len(names) == len(set(names))
              and completed == [['complete', len(checks), failures]])
     starts = [r for r in records if r and r[0] == 'start']
-    if len(starts) == 1 and starts[0][1].lower() == 'altis':
+    if pricing:
+        expected = {'independent_of_infection', 'faction_loot_class', 'vehicle_native_price',
+                    'loot_discount_unchanged', 'vehicle_discount_native_price',
+                    'rally_class_delegates', 'uninitialized_loot_setting_delegates',
+                    'missing_faction_delegates'}
+        expected.update(f'loot_price_{n}' for n in (100, 200, 300, 400, 500))
+        valid = (set(names) == expected and len(names) == len(expected)
+                 and len(starts) == 1 and starts[0][1].lower() == 'chernarusredux'
+                 and completed == [['complete', len(checks), failures]])
+        if len(starts) == 1 and starts[0][1].lower() == 'altis':
+            valid = (set(names) == {'independent_of_infection', 'non_redux_pricing_delegates'}
+                     and len(names) == 2 and starts[0][2] is True
+                     and completed == [['complete', len(checks), failures]])
+    elif len(starts) == 1 and starts[0][1].lower() == 'altis':
         valid = (set(names) == {'independent_of_infection', 'non_redux_delegation'}
                  and len(names) == 2 and starts[0][2] is True
                  and completed == [['complete', len(checks), failures]])
