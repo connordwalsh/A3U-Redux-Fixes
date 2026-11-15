@@ -68,3 +68,10 @@ Full campaign runs with native HC deferred still emit it before HC starts, so
 the HC/MARTA lead does not establish its cause. Deferral itself removes both
 missing-leader expression records and passes native save/reload; see
 HIGH_COMMAND_STARTUP.md. Missing objects and addon activation remain unresolved.
+
+Bounded follow-up tracing identifies redundant Curator addon-activation requests,
+not HC/MARTA, as the timing-error path. The late requests contain no missing
+case-normalized addon identities. The guard and uninstrumented campaign
+validation are documented in CURATOR_ACTIVATION.md. Both full campaign phases
+now retain only the two missing-object error records. Their entities are still
+unidentified; early event tracing did not establish their creation or deletion.

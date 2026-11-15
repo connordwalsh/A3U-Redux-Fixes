@@ -1,0 +1,52 @@
+{
+  "accepted": true,
+  "guarded": false,
+  "scope": "Focused activation probe; intentional native errors required",
+  "sha256": "ade709c37feded16ec8c7ad22411c30718ef62e4fbe86fdf83107a4fee3caf5e",
+  "checks": {
+    "one_run": true,
+    "schema": true,
+    "early_native": true,
+    "active_set_unchanged": true,
+    "unknown_rejected": true,
+    "wrong_type_rejected": true,
+    "active_result": true,
+    "empty_result": true,
+    "native_negative_diagnostics": true
+  },
+  "records": [
+    [
+      "early_native",
+      true
+    ],
+    [
+      "active_result",
+      0,
+      false
+    ],
+    [
+      "empty_result",
+      0,
+      false
+    ],
+    [
+      "unknown_rejected",
+      true
+    ],
+    [
+      "wrong_type_rejected",
+      true
+    ],
+    [
+      "active_set_unchanged",
+      true
+    ]
+  ],
+  "errors": [
+    "16:59:01 \"A3URF_Population_Fixed/log: ERROR: [BIS_fnc_activateAddons] The function can be activated only during the mission init.\"",
+    "16:59:01 \"A3URF_Population_Fixed/log: ERROR: [BIS_fnc_activateAddons] The function can be activated only during the mission init.\"",
+    "16:59:01 \"A3URF_Population_Fixed/log: ERROR: [BIS_fnc_activateAddons] The function can be activated only during the mission init.\"",
+    "16:59:01 \"A3URF_Population_Fixed/log: ERROR: [BIS_fnc_activateAddons] The function can be activated only during the mission init.\""
+  ],
+  "malformed": []
+}

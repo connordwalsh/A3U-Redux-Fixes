@@ -17,8 +17,10 @@ Infection gameplay.
   invalid-request checks; see SMART_MARKER_STARTUP.md.
   High Command now defers startup until a leader is synchronized; eight focused
   lifecycle checks and full campaign save/reload pass, with missing-leader errors
-  absent. Two missing-object errors and an addon-init error remain. See
-  HIGH_COMMAND_STARTUP.md; connected-player HC acceptance is still open.
+  absent. Curator's redundant late addon requests now return the already-active
+  set; full native save/reload passes 18 assertions per phase with all Curator
+  addons preserved and no activation error. Two missing-object errors remain.
+  See HIGH_COMMAND_STARTUP.md and CURATOR_ACTIVATION.md; client acceptance is open.
 - RF-4: Correct loot-crate save value to the owner-approved configured price.
   Thirteen focused and two Altis checks pass; full native refund/reload passes
   eleven assertions per phase. Other campaign errors remain open.

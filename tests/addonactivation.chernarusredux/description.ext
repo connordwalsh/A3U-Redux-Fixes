@@ -1,0 +1,11 @@
+onLoadName="Addon activation idempotence diagnostic";
+respawn=3;respawnDelay=2;disabledAI=0;briefing=0;debriefing=0;
+class Header {gameType=Coop;minPlayers=1;maxPlayers=1;};
+allowFunctionsLog=1;
+class CfgFunctions {
+    class A3URFTest {
+        class Probe {
+            class early {file="early.sqf";preInit=1;};
+        };
+    };
+};
