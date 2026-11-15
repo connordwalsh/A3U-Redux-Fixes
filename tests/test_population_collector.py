@@ -13,6 +13,9 @@ class EvidenceTests(unittest.TestCase):
     def test_fixed_evidence(self):
         self.assertTrue(collector.collect(ROOT / 'evidence/population-dev3/Fixed.rpt')['accepted'])
 
+    def test_altis_delegation_evidence(self):
+        self.assertTrue(collector.collect(ROOT / 'evidence/population-altis-dev1/Fixed.rpt')['accepted'])
+
     def test_native_errors_reject_even_with_green_assertions(self):
         result = collector.collect(ROOT / 'evidence/population-dev3/Baseline.rpt')
         self.assertFalse(result['accepted'])

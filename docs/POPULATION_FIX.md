@@ -29,17 +29,24 @@ The precise reason for the earlier wrapper's incomplete effect is not proven.
 - `evidence/population-dev3`: same fixture for baseline and revised fix;
   153 assertions each, 98 native population errors in baseline, zero in fixed.
   The collector rejects baseline even though every assertion passes.
-- Four collector regression tests verify accepted evidence and rejection of
+- Five collector regression tests verify accepted evidence and rejection of
   native errors, missing completion and a missing expected town check.
 - `evidence/population-altis-dev1`: two assertions pass; the override delegates
   unchanged native data for all 47 Altis towns, with no script/native errors.
   Its rebuild has the same production input hashes as Redux dev3; PBO packing
   timestamps differ. Attribution is included in the rebuilt mod folder.
 
-These are focused dedicated-engine checks without a player. Existing terrain
+The full Infection campaign companion run also passes nine save and ten
+process-restart reload assertions, with zero population errors. Its unchanged
+clean-log gate remains failed on 14 writer and 11 reader records from other
+startup/marker/pricing issues. Full evidence is tracked in the Infection repo's
+`codex/redux-companion-validation` branch under `evidence/sprint-4/redux-companion-*`
+and `docs/research/REDUX_COMPANION_VALIDATION.md`.
+
+These are dedicated-engine checks without a player. Existing terrain
 model/geometry warnings remain visible in the raw logs and are not certified
-away by the population check. Full campaign startup/reload and client checks
-remain required before release.
+away by the population check. Remaining full-campaign errors and client checks
+remain open before release.
 
 ## Reproduction
 

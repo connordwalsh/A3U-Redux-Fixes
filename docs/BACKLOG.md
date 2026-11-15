@@ -5,7 +5,8 @@ Owner approved the public, independent A3U-Redux-Fixes repository on 15 November
 Infection gameplay.
 
 - RF-1: Read-time population correction passes paired focused Redux checks.
-  Altis native delegation passes. Full campaign acceptance remains open; see POPULATION_FIX.md.
+  Altis delegation and full campaign save/reload population checks pass. Other
+  campaign errors and client acceptance remain open; see POPULATION_FIX.md.
 - RF-2: Investigate six short native vehicle-spawn markers. Not implemented.
 - RF-3: Classify native no-player High Command/SmartMarker startup errors. Open.
 - RF-4: Investigate native save-time ammunition-box pricing errors. Open.
