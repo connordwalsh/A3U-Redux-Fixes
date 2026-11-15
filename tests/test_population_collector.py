@@ -16,6 +16,19 @@ class EvidenceTests(unittest.TestCase):
     def test_altis_delegation_evidence(self):
         self.assertTrue(collector.collect(ROOT / 'evidence/population-altis-dev1/Fixed.rpt')['accepted'])
 
+    def test_pricing_evidence(self):
+        result = collector.collect(ROOT / 'evidence/pricing-dev1/Fixed.rpt')
+        self.assertTrue(result['accepted'])
+        self.assertEqual(len(result['checks']), 13)
+
+    def test_pricing_altis_evidence(self):
+        self.assertTrue(collector.collect(ROOT / 'evidence/pricing-altis-dev1/Fixed.rpt')['accepted'])
+
+    def test_native_pricing_rejected(self):
+        result = collector.collect(ROOT / 'evidence/pricing-dev1/Baseline.rpt')
+        self.assertFalse(result['accepted'])
+        self.assertEqual(len(result['failed_checks']), 7)
+
     def test_native_errors_reject_even_with_green_assertions(self):
         result = collector.collect(ROOT / 'evidence/population-dev3/Baseline.rpt')
         self.assertFalse(result['accepted'])

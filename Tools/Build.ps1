@@ -7,7 +7,7 @@ $stage=Join-Path $root ('.work/build-stage/'+[guid]::NewGuid().ToString('N'))
 $addon=Join-Path $stage 'a3urf_core';$packed=Join-Path $stage 'packed'
 New-Item -ItemType Directory -Path $addon,$packed,(Join-Path $output 'addons') -Force | Out-Null
 $source=Join-Path $root 'ReduxFixes/addons/core'
-Copy-Item -LiteralPath (Join-Path $source 'fn_getCityData.sqf') -Destination $addon
+Get-ChildItem -LiteralPath $source -Filter '*.sqf' | Copy-Item -Destination $addon
 & (Join-Path $ArmaTools 'CfgConvert/CfgConvert.exe') -bin -dst (Join-Path $addon 'config.bin') (Join-Path $source 'config.cpp')
 if ($LASTEXITCODE -ne 0) {throw 'Configuration conversion failed'}
 & (Join-Path $ArmaTools 'FileBank/FileBank.exe') -property 'prefix=x\a3urf\addons\core' -dst $packed $addon

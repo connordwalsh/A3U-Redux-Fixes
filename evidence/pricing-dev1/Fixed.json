@@ -1,0 +1,110 @@
+{
+  "sha256": "ac09c4cae4b682973e91c8ee71e1d0c88b8fae4252d92776cde26855fec1ddaa",
+  "checks": [
+    [
+      "check",
+      "independent_of_infection",
+      true,
+      []
+    ],
+    [
+      "check",
+      "loot_price_100",
+      true,
+      [
+        100,
+        100
+      ]
+    ],
+    [
+      "check",
+      "loot_price_200",
+      true,
+      [
+        200,
+        200
+      ]
+    ],
+    [
+      "check",
+      "loot_price_300",
+      true,
+      [
+        300,
+        300
+      ]
+    ],
+    [
+      "check",
+      "loot_price_400",
+      true,
+      [
+        400,
+        400
+      ]
+    ],
+    [
+      "check",
+      "loot_price_500",
+      true,
+      [
+        500,
+        500
+      ]
+    ],
+    [
+      "check",
+      "faction_loot_class",
+      true,
+      []
+    ],
+    [
+      "check",
+      "vehicle_native_price",
+      true,
+      []
+    ],
+    [
+      "check",
+      "loot_discount_unchanged",
+      true,
+      []
+    ],
+    [
+      "check",
+      "vehicle_discount_native_price",
+      true,
+      []
+    ],
+    [
+      "check",
+      "rally_class_delegates",
+      true,
+      []
+    ],
+    [
+      "check",
+      "uninitialized_loot_setting_delegates",
+      true,
+      []
+    ],
+    [
+      "check",
+      "missing_faction_delegates",
+      true,
+      []
+    ]
+  ],
+  "completion": [
+    [
+      "complete",
+      13,
+      []
+    ]
+  ],
+  "failed_checks": [],
+  "malformed_records": [],
+  "errors": [],
+  "schema_valid": true,
+  "accepted": true
+}
