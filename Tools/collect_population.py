@@ -11,12 +11,13 @@ def collect(path):
     lines = raw.decode('utf-8-sig', errors='replace').splitlines()
     records = []
     pricing = any('[REDUX_PRICING]' in line for line in lines)
+    parking = any('[REDUX_PARKING]' in line for line in lines)
     malformed = []
     errors = []
     for line in lines:
         if re.search(r'\| Error \||Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|Error position:', line):
             errors.append(line)
-        marker = '[REDUX_PRICING] ' if pricing else '[REDUX_POPULATION] '
+        marker = '[REDUX_PARKING] ' if parking else '[REDUX_PRICING] ' if pricing else '[REDUX_POPULATION] '
         if marker not in line:
             continue
         payload = line.split(marker, 1)[1]
@@ -41,7 +42,18 @@ def collect(path):
              and set(names) == expected and len(names) == len(set(names))
              and completed == [['complete', len(checks), failures]])
     starts = [r for r in records if r and r[0] == 'start']
-    if pricing:
+    if parking:
+        expected = {'six_markers_corrected', 'orphan_reconnected', 'appearance_preserved',
+                    'idempotent', 'custom_geometry_preserved', 'existing_destination_preserved',
+                    'custom_resource13_preserved', 'missing_parent_preserved'}
+        expected.update('native_slot_' + site for site in ('outpost_6', 'resource_1', 'resource_2', 'resource_3', 'resource_7', 'resource_10'))
+        if len(starts) == 1 and starts[0][1].lower() == 'altis':
+            expected = {'other_world_unchanged'}
+        valid = (set(names) == expected and len(names) == len(expected)
+                 and len(starts) == 1 and starts[0][1].lower() in ('chernarusredux', 'altis')
+                 and starts[0][2] is True
+                 and completed == [['complete', len(checks), failures]])
+    elif pricing:
         expected = {'independent_of_infection', 'faction_loot_class', 'vehicle_native_price',
                     'loot_discount_unchanged', 'vehicle_discount_native_price',
                     'rally_class_delegates', 'uninitialized_loot_setting_delegates',

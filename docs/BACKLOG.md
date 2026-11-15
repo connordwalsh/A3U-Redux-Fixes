@@ -7,7 +7,10 @@ Infection gameplay.
 - RF-1: Read-time population correction passes paired focused Redux checks.
   Altis delegation and full campaign save/reload population checks pass. Other
   campaign errors and client acceptance remain open; see POPULATION_FIX.md.
-- RF-2: Investigate six short native vehicle-spawn markers. Not implemented.
+- RF-2: Footprint-preserving parking correction and resource-10 reconnection
+  pass terrain probes (24 vehicles), 14 native-slot/guard checks and Altis
+  preservation. Full campaign save/reload validation is running. See
+  VEHICLE_MARKER_DIAGNOSTIC.md.
 - RF-3: Classify native no-player High Command/SmartMarker startup errors. Open.
 - RF-4: Correct loot-crate save value to the owner-approved configured price.
   Thirteen focused and two Altis checks pass; full native refund/reload passes

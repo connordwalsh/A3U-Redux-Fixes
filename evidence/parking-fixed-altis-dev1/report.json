@@ -1,0 +1,23 @@
+{
+  "sha256": "aec5464301f9ab605de66b0a28ca08ab96e5c4cc9011dad6770ce3fed01e3e38",
+  "checks": [
+    [
+      "check",
+      "other_world_unchanged",
+      true,
+      []
+    ]
+  ],
+  "completion": [
+    [
+      "complete",
+      1,
+      []
+    ]
+  ],
+  "failed_checks": [],
+  "malformed_records": [],
+  "errors": [],
+  "schema_valid": true,
+  "accepted": true
+}

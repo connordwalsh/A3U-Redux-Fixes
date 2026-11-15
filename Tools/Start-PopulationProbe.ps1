@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory=$true)][string]$SteamLibrary,
     [Parameter(Mandatory=$true)][string]$ArmaTools,
     [ValidateSet('Baseline','Fixed')][string]$Mode='Fixed',
-    [ValidateSet('Population','Pricing')][string]$Suite='Population',
+    [ValidateSet('Population','Pricing','Markers','Parking')][string]$Suite='Population',
     [ValidateSet('chernarusredux','Altis')][string]$World='chernarusredux',
     [ValidateRange(1024,65531)][int]$Port=5102
 )
@@ -14,9 +14,14 @@ if ($World -ne 'chernarusredux') {$profile+='-'+$World}
 if (Get-CimInstance Win32_Process | Where-Object {$_.Name -eq 'arma3server_x64.exe' -and $_.CommandLine -and $_.CommandLine.Contains($profile)}) {throw 'This probe is already running.'}
 $missionName='A3URF_'+$Suite+'_'+$Mode+'.'+$World
 $stage=Join-Path $root ('.work/probe-stage/'+[guid]::NewGuid().ToString('N'))
+$probeSource=Join-Path $root ('tests/'+$Suite.ToLowerInvariant()+'.chernarusredux')
+foreach ($required in @('mission.sqm','description.ext','initServer.sqf')) {
+    if (!(Test-Path -LiteralPath (Join-Path $probeSource $required))) {throw "Missing probe source: $required"}
+}
+if ($Suite -in @('Markers','Parking') -and !(Test-Path -LiteralPath (Join-Path $probeSource 'markerData.sqf'))) {throw 'Missing extracted marker data'}
 $mission=Join-Path $stage $missionName;$packed=Join-Path $stage 'packed'
 New-Item -ItemType Directory -Path $mission,$packed,$profile -Force | Out-Null
-Copy-Item (Join-Path $root ('tests/'+$Suite.ToLowerInvariant()+'.chernarusredux/*')) -Destination $mission
+Copy-Item (Join-Path $probeSource '*') -Destination $mission
 foreach ($file in @('mission.sqm','description.ext')) {
     & (Join-Path $ArmaTools 'CfgConvert/CfgConvert.exe') -bin -dst (Join-Path $stage ($file+'.bin')) (Join-Path $mission $file)
     if ($LASTEXITCODE -ne 0) {throw "Mission validation failed: $file"}
