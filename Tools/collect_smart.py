@@ -11,7 +11,7 @@ def collect(path, logging, fixed=False, altis=False, calls=False):
     records, errors, malformed = [], [], []
     complete = 0
     for line in raw.decode('utf-8-sig', errors='replace').splitlines():
-        if re.search(r'Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|', line):
+        if re.search(r'\bError(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|\| Error \|', line, re.IGNORECASE):
             errors.append(line)
         tag = '[REDUX_SMART_CALL] ' if calls else '[REDUX_SMART] '
         if tag not in line:

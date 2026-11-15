@@ -23,7 +23,7 @@ class SmartEvidence(unittest.TestCase):
         source = (ROOT / 'evidence/smart-calls-dev1/probe.rpt').read_text(encoding='utf-8')
         for altered in [source.replace('Error: SmartMarker', 'Omitted: SmartMarker'),
                         source.replace('[REDUX_SMART_CALL] complete', 'interrupted'),
-                        source + '\nError: unexpected\n', source + source]:
+                        source + '\nError: unexpected\n', source + '\nERROR: unexpected\n', source + source]:
             with tempfile.TemporaryDirectory() as directory:
                 path = Path(directory) / 'probe.rpt'
                 path.write_text(altered, encoding='utf-8')

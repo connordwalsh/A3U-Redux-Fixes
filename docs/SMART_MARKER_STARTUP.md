@@ -38,7 +38,16 @@ addon manifest. The collector requires exact expected records/errors and rejects
 missing completion, extra runs and unexpected errors. Fixtures do not replace
 the production handler or disable diagnostic logging.
 
-Full campaign startup/save/reload with this build is still pending. Connected
-player UI, actual Old Man marker operations and release acceptance are not
-certified by these isolated checks. High Command and missing-object campaign
-errors remain open. No manual installation or engine source was changed.
+Full native Infection campaign startup/save/process-restart/reload with this
+build passes 16 assertions per phase and 75-second background windows. Both
+logs omit the SmartMarker startup error but retain five other error records:
+HC's missing leader (two records), missing objects (two) and an addon-init error.
+The campaign collector was corrected to catch uppercase ERROR too; the older
+market log has six matching records under the corrected rule, rather than the
+five originally reported. Original failed reports are preserved.
+
+See Infection branch `codex/redux-smart-validation`, its
+`docs/research/REDUX_SMART_VALIDATION.md` and retained complete logs. Eight
+campaign collector/parser tests and 24 independent evidence tests pass.
+Connected-player UI, actual Old Man marker operations and release acceptance
+are not certified. No manual installation or engine source was changed.

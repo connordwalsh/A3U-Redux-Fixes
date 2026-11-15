@@ -47,3 +47,18 @@ and dedicated profile identities. No production override was added.
 This establishes the native module's empty-synchronization failure in isolation.
 It does not yet establish the live synchronization state in the full campaign,
 prove that a connected player resolves all startup errors, or close RF-3.
+
+## Follow-up evidence
+
+The full Infection campaign's read-only module snapshot now confirms zero
+players, absent commanderX and a live HC scope synchronized only to its
+subordinate. See Infection's `REDUX_SMART_VALIDATION.md` and retained logs.
+The SmartMarker error has a separate Old Man lifecycle cause and a focused
+guard; see SMART_MARKER_STARTUP.md.
+
+The campaign collector also missed uppercase `ERROR:` records. Case-insensitive
+matching exposes an additional `BIS_fnc_activateAddons` initialization-time error
+already present in prior logs. The native HC script calls `activateAddons` when
+creating MARTA (line 37 of the hash-pinned local script). This is a source lead
+to reproduce with function logging enabled, not yet a proven causal diagnosis.
+Existing campaign reports already failed; original logs/reports are preserved.
