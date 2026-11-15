@@ -41,3 +41,14 @@ These results support cleanup timing as the source of the earlier clearance
 query failures. They cover four seconds per empty vehicle, not player driving,
 long-term stability or all vehicle classes. The 90-degree option is used for
 the candidate; it preserves the same area and passed both tested vehicle types.
+
+The guarded addon passes 14 native-slot/idempotence/custom-data checks on Redux
+and leaves Altis unchanged. Twelve collector tests pass. Full native Infection
+campaign startup/save/process-restart/reload passes 13 assertions per phase,
+including all six slots and the corrected resource-10 association. The two full
+campaign reports remain failed on five writer and six reader records: startup/
+object errors and a later helicopter-price error during background activity.
+Population, loot-crate-price and parking-marker errors are absent. See Infection branch
+`codex/redux-parking-validation`, `docs/research/REDUX_PARKING_VALIDATION.md`, and
+`evidence/sprint-4/redux-companion-parking-*` for full evidence. No release gate
+is closed by this source integration.
