@@ -31,7 +31,12 @@ Focused evidence:
   collector. The initial parser report omitted that known diagnostic and failed;
   it is preserved alongside the corrected explicit five-error expectation.
 
-All 31 evidence tests pass. Full native campaign validation is pending. Source
+All 31 evidence tests pass. Uninstrumented full native Infection campaign
+write/process-restart/read pass 18 assertions per phase and 75-second windows.
+All 2874 active addons remain available to the mission's Curator, and the
+activation error is absent. Two missing-object errors still fail both complete
+log reports. Eight campaign collector/parser tests pass. See Infection's
+REDUX_CURATOR_VALIDATION.md and `redux-companion-curator-*` evidence. Source
 inspection hashes and complete instrumented traces are in Infection's
 `docs/research/STARTUP_TRACE.md`; the trace is diagnosis, not clean-log acceptance.
 No engine source is redistributed, and no manual installation is modified.
