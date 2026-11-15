@@ -1,0 +1,29 @@
+{
+  "sha256": "64fc1624150a607eed2da5e2e0c3109f9bb945183b7a31bed221873823bb8f38",
+  "checks": [
+    [
+      "check",
+      "independent_of_infection",
+      true,
+      []
+    ],
+    [
+      "check",
+      "non_redux_pricing_delegates",
+      true,
+      []
+    ]
+  ],
+  "completion": [
+    [
+      "complete",
+      2,
+      []
+    ]
+  ],
+  "failed_checks": [],
+  "malformed_records": [],
+  "errors": [],
+  "schema_valid": true,
+  "accepted": true
+}
