@@ -27,5 +27,9 @@ The full campaign probe now explicitly checks the real helicopter quote against
 native blackMarketVehiclePrice and waits 75 seconds after saving/loading to
 observe background activity before completion. Its original late error occurred
 36 seconds after the old completion marker. Results are tracked separately in
-Infection's codex/redux-market-validation branch. No client, performance or
+Infection's codex/redux-market-validation branch. Both native writer and restarted
+reader pass 16 assertions, including the real 28800 quote and background window.
+No pricing errors occur, but each whole-log clean gate remains failed on five
+startup/object records. Seventeen focused collector tests pass. See Infection's
+docs/research/REDUX_MARKET_VALIDATION.md and retained full evidence. No client, performance or
 release acceptance follows from these focused checks.

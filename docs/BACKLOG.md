@@ -19,7 +19,9 @@ Infection gameplay.
   See LOOT_CRATE_PRICE.md.
 - RF-5: Valid black-market-only quotes incorrectly log a missing HQ price.
   Corrected native fallback passes 15 positive checks, two negative cases with
-  required diagnostics, and Altis delegation. Full campaign observation running;
+  required diagnostics, and Altis delegation. Full campaign write/reload each
+  pass 16 assertions including a 75-second background window, without pricing
+  errors. Five startup/object records still fail the clean-log gate;
   see BLACK_MARKET_FALLBACK.md.
 
 No sprint or release gate is closed. Preserve original map/mod files, isolate
