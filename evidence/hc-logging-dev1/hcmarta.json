@@ -1,0 +1,53 @@
+{
+  "accepted": true,
+  "scope": "Native module diagnostic, not campaign acceptance",
+  "leader_present": true,
+  "sha256": "c7fe6b3d313e79ba8593d141053abddbfb082df8af12e936d0328e61ea68c0a0",
+  "checks": {
+    "one_complete_run": true,
+    "dedicated_no_players": true,
+    "synchronization": true,
+    "scope_binding": true,
+    "expected_diagnostics": true
+  },
+  "records": [
+    [
+      "start",
+      true,
+      true,
+      0,
+      [
+        "Arma 3",
+        "Arma3",
+        222,
+        154089,
+        "Stable",
+        true,
+        "Windows",
+        "x64",
+        ""
+      ]
+    ],
+    [
+      "synchronized",
+      [
+        "HighCommandSubordinate",
+        "I_G_Soldier_TL_F"
+      ]
+    ],
+    [
+      "result",
+      true,
+      true,
+      true,
+      [
+        "HighCommandSubordinate",
+        "I_G_Soldier_TL_F"
+      ],
+      false,
+      0
+    ]
+  ],
+  "errors": [],
+  "malformed": []
+}
