@@ -15,11 +15,14 @@ class CfgFunctions {
         class Compatibility {
             class originalGetCityData { file = "\x\a3a\addons\core\functions\init\fn_getCityData.sqf"; };
             class originalVehiclePrice { file = "\x\a3a\addons\core\functions\REINF\fn_vehiclePrice.sqf"; };
+            class originalPrepareMarkerArrays { file = "\x\a3a\addons\core\functions\init\fn_prepareMarkerArrays.sqf"; };
+            class repairParkingMarkers { file = "\x\a3urf\addons\core\fn_repairParkingMarkers.sqf"; };
         };
     };
     class A3A {
         class init {
             class getCityData { file = "\x\a3urf\addons\core\fn_getCityData.sqf"; };
+            class prepareMarkerArrays { file = "\x\a3urf\addons\core\fn_prepareMarkerArrays.sqf"; };
         };
         class REINF {
             class vehiclePrice { file = "\x\a3urf\addons\core\fn_vehiclePrice.sqf"; };
