@@ -14,8 +14,11 @@ Infection gameplay.
   VEHICLE_MARKER_DIAGNOSTIC.md.
 - RF-3: Native empty-leader HC failure reproduced in paired diagnostics.
   Old Man SmartMarker preInit guard passes Redux, Altis delegation and actual
-  invalid-request checks; see SMART_MARKER_STARTUP.md. Full campaign validation,
-  High Command handling and missing-object tracing remain open.
+  invalid-request checks; see SMART_MARKER_STARTUP.md.
+  High Command now defers startup until a leader is synchronized; eight focused
+  lifecycle checks and full campaign save/reload pass, with missing-leader errors
+  absent. Two missing-object errors and an addon-init error remain. See
+  HIGH_COMMAND_STARTUP.md; connected-player HC acceptance is still open.
 - RF-4: Correct loot-crate save value to the owner-approved configured price.
   Thirteen focused and two Altis checks pass; full native refund/reload passes
   eleven assertions per phase. Other campaign errors remain open.

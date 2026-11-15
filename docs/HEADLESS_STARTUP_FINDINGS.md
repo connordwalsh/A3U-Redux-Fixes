@@ -62,3 +62,9 @@ already present in prior logs. The native HC script calls `activateAddons` when
 creating MARTA (line 37 of the hash-pinned local script). This is a source lead
 to reproduce with function logging enabled, not yet a proven causal diagnosis.
 Existing campaign reports already failed; original logs/reports are preserved.
+
+The subsequent HC logging/MARTA pair did not reproduce the addon-init error.
+Full campaign runs with native HC deferred still emit it before HC starts, so
+the HC/MARTA lead does not establish its cause. Deferral itself removes both
+missing-leader expression records and passes native save/reload; see
+HIGH_COMMAND_STARTUP.md. Missing objects and addon activation remain unresolved.

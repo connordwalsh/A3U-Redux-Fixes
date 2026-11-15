@@ -36,7 +36,14 @@ preserved. The HC collectors now detect uppercase ERROR as well. All 28
 independent evidence tests pass. Bohemia source is read from the installation,
 not copied into this repository or distributed in the addon.
 
-Full native campaign save/reload validation is pending. A server-side AI
-commander exercises synchronization, not connected-player UI or JIP. Those
-acceptance gates, the missing-object diagnostics and release readiness remain
-open. No Computer Use or manual-install modifications occurred.
+Full native Infection campaign write/process-restart/read each pass 17 assertions
+and 75-second background windows. The real empty HC scope waits safely while
+campaign startup, saving and loading proceed. Missing-leader errors are absent;
+two missing-object errors and an addon-init error still fail clean-log acceptance.
+The latter occurs before the deferred HC script runs, separating it from this
+failure. See Infection's `docs/research/REDUX_HC_VALIDATION.md` and retained
+`redux-companion-hc-*` evidence. Eight campaign collector/parser tests pass.
+
+A server-side AI commander exercises synchronization, not connected-player UI
+or JIP. Those gates and release readiness remain open. No Computer Use or
+manual-install modifications occurred.
