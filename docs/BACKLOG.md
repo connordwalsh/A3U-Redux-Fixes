@@ -12,7 +12,10 @@ Infection gameplay.
   preservation. Full native save/reload passes 13 assertions per phase and has
   no marker errors; startup/object and a later helicopter-price error remain. See
   VEHICLE_MARKER_DIAGNOSTIC.md.
-- RF-3: Classify native no-player High Command/SmartMarker startup errors. Open.
+- RF-3: Native empty-leader HC failure reproduced in paired diagnostics.
+  Old Man SmartMarker preInit guard passes Redux, Altis delegation and actual
+  invalid-request checks; see SMART_MARKER_STARTUP.md. Full campaign validation,
+  High Command handling and missing-object tracing remain open.
 - RF-4: Correct loot-crate save value to the owner-approved configured price.
   Thirteen focused and two Altis checks pass; full native refund/reload passes
   eleven assertions per phase. Other campaign errors remain open.
