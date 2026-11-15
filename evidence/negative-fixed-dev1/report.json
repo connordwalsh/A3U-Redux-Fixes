@@ -1,0 +1,32 @@
+{
+  "scope": "Intentional invalid-price negative control; five native errors REQUIRED",
+  "sha256": "aa2d6cb4d124b14d8fab52b00a2cdc423ab7d7649dffea59af320746281b0be0",
+  "accepted": true,
+  "checks": {
+    "one_run": true,
+    "valid_records": true,
+    "fallback_values": true,
+    "native_diagnostics_retained": true
+  },
+  "records": [
+    [
+      "unknown_price",
+      true,
+      1000
+    ],
+    [
+      "zero_discounted_price",
+      true,
+      1000
+    ]
+  ],
+  "errors": [
+    "16:13:33 2026-11-15 21:13:33:208 | Antistasi | Error | File: A3URF_fnc_originalVehiclePrice | Invalid vehicle price :O_Truck_03_transport_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:13:33 2026-11-15 21:13:33:208 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at O_Truck_03_transport_F. | Called By: A3URF_fnc_originalVehiclePrice",
+    "16:13:33 2026-11-15 21:13:33:208 | Antistasi | Error | File: A3URF_fnc_originalVehiclePrice | 0 was an invalid price. Defaulting to 1000 | Called By: A3A_fnc_vehiclePrice",
+    "16:13:33 2026-11-15 21:13:33:208 | Antistasi | Error | File: A3URF_fnc_originalVehiclePrice | Invalid vehicle price :O_Heli_Light_02_dynamicLoadout_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:13:33 2026-11-15 21:13:33:208 | Antistasi | Error | File: A3URF_fnc_originalVehiclePrice | 0 was an invalid price. Defaulting to 1000 | Called By: A3A_fnc_vehiclePrice"
+  ],
+  "unexpected_errors": [],
+  "malformed": []
+}

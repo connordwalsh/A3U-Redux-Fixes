@@ -12,12 +12,13 @@ def collect(path):
     records = []
     pricing = any('[REDUX_PRICING]' in line for line in lines)
     parking = any('[REDUX_PARKING]' in line for line in lines)
+    market = any('[REDUX_MARKET]' in line for line in lines)
     malformed = []
     errors = []
     for line in lines:
         if re.search(r'\| Error \||Error(?::|\s+(?:in expression|Undefined|Missing|Generic|Type))|Error position:', line):
             errors.append(line)
-        marker = '[REDUX_PARKING] ' if parking else '[REDUX_PRICING] ' if pricing else '[REDUX_POPULATION] '
+        marker = '[REDUX_MARKET] ' if market else '[REDUX_PARKING] ' if parking else '[REDUX_PRICING] ' if pricing else '[REDUX_POPULATION] '
         if marker not in line:
             continue
         payload = line.split(marker, 1)[1]
@@ -53,12 +54,14 @@ def collect(path):
                  and len(starts) == 1 and starts[0][1].lower() in ('chernarusredux', 'altis')
                  and starts[0][2] is True
                  and completed == [['complete', len(checks), failures]])
-    elif pricing:
+    elif pricing or market:
         expected = {'independent_of_infection', 'faction_loot_class', 'vehicle_native_price',
                     'loot_discount_unchanged', 'vehicle_discount_native_price',
                     'rally_class_delegates', 'uninitialized_loot_setting_delegates',
                     'missing_faction_delegates'}
         expected.update(f'loot_price_{n}' for n in (100, 200, 300, 400, 500))
+        if market:
+            expected.update({'black_market_only_price','black_market_only_discount'})
         valid = (set(names) == expected and len(names) == len(expected)
                  and len(starts) == 1 and starts[0][1].lower() == 'chernarusredux'
                  and completed == [['complete', len(checks), failures]])

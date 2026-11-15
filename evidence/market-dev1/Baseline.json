@@ -1,0 +1,162 @@
+{
+  "sha256": "7b0a7832ff88ada1e8be48efcfe7f5b967a420ec18383c7ab1a3710a09f86fcf",
+  "checks": [
+    [
+      "check",
+      "independent_of_infection",
+      true,
+      []
+    ],
+    [
+      "check",
+      "loot_price_100",
+      false,
+      [
+        1000,
+        100
+      ]
+    ],
+    [
+      "check",
+      "loot_price_200",
+      false,
+      [
+        1000,
+        200
+      ]
+    ],
+    [
+      "check",
+      "loot_price_300",
+      false,
+      [
+        1000,
+        300
+      ]
+    ],
+    [
+      "check",
+      "loot_price_400",
+      false,
+      [
+        1000,
+        400
+      ]
+    ],
+    [
+      "check",
+      "loot_price_500",
+      false,
+      [
+        1000,
+        500
+      ]
+    ],
+    [
+      "check",
+      "faction_loot_class",
+      false,
+      []
+    ],
+    [
+      "check",
+      "vehicle_native_price",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_price",
+      true,
+      []
+    ],
+    [
+      "check",
+      "loot_discount_unchanged",
+      false,
+      []
+    ],
+    [
+      "check",
+      "vehicle_discount_native_price",
+      true,
+      []
+    ],
+    [
+      "check",
+      "rally_class_delegates",
+      true,
+      []
+    ],
+    [
+      "check",
+      "black_market_only_discount",
+      true,
+      []
+    ],
+    [
+      "check",
+      "uninitialized_loot_setting_delegates",
+      true,
+      []
+    ],
+    [
+      "check",
+      "missing_faction_delegates",
+      true,
+      []
+    ]
+  ],
+  "completion": [
+    [
+      "complete",
+      15,
+      [
+        "loot_price_100",
+        "loot_price_200",
+        "loot_price_300",
+        "loot_price_400",
+        "loot_price_500",
+        "faction_loot_class",
+        "loot_discount_unchanged"
+      ]
+    ]
+  ],
+  "failed_checks": [
+    "loot_price_100",
+    "loot_price_200",
+    "loot_price_300",
+    "loot_price_400",
+    "loot_price_500",
+    "faction_loot_class",
+    "loot_discount_unchanged"
+  ],
+  "malformed_records": [],
+  "errors": [
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :A3AP_Box_Syndicate_Ammo_F.",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at A3AP_Box_Syndicate_Ammo_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | 0 was an invalid price. Defaulting to 1000",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :A3AP_Box_Syndicate_Ammo_F.",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at A3AP_Box_Syndicate_Ammo_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | 0 was an invalid price. Defaulting to 1000",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :A3AP_Box_Syndicate_Ammo_F.",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at A3AP_Box_Syndicate_Ammo_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | 0 was an invalid price. Defaulting to 1000",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :A3AP_Box_Syndicate_Ammo_F.",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at A3AP_Box_Syndicate_Ammo_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | 0 was an invalid price. Defaulting to 1000",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :A3AP_Box_Syndicate_Ammo_F.",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at A3AP_Box_Syndicate_Ammo_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | 0 was an invalid price. Defaulting to 1000",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :Box_NATO_Ammo_F.",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at Box_NATO_Ammo_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | 0 was an invalid price. Defaulting to 1000",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :O_Heli_Light_02_dynamicLoadout_F.",
+    "16:11:20 2026-11-15 21:11:20:551 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :Box_NATO_Ammo_F.",
+    "16:11:20 2026-11-15 21:11:20:587 | Antistasi | Error | File: A3U_fnc_blackMarketVehiclePrice | Invalid vehicle price at Box_NATO_Ammo_F. | Called By: A3A_fnc_vehiclePrice",
+    "16:11:20 2026-11-15 21:11:20:587 | Antistasi | Error | File: A3A_fnc_vehiclePrice | 0 was an invalid price. Defaulting to 1000",
+    "16:11:20 2026-11-15 21:11:20:587 | Antistasi | Error | File: A3A_fnc_vehiclePrice | Invalid vehicle price :O_Heli_Light_02_dynamicLoadout_F."
+  ],
+  "schema_valid": true,
+  "accepted": false
+}
