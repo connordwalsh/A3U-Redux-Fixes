@@ -13,6 +13,7 @@ class CfgFunctions {
     class A3URF {
         tag = "A3URF";
         class Compatibility {
+            class originalGarrisonUpdate { file = "\x\a3a\addons\core\functions\CREATE\fn_garrisonUpdate.sqf"; };
             class originalGetCityData { file = "\x\a3a\addons\core\functions\init\fn_getCityData.sqf"; };
             class originalVehiclePrice { file = "\x\a3a\addons\core\functions\REINF\fn_vehiclePrice.sqf"; };
             class originalPrepareMarkerArrays { file = "\x\a3a\addons\core\functions\init\fn_prepareMarkerArrays.sqf"; };
@@ -24,6 +25,9 @@ class CfgFunctions {
         };
     };
     class A3A {
+        class CREATE {
+            class garrisonUpdate { file = "\x\a3urf\addons\core\fn_garrisonUpdate.sqf"; };
+        };
         class init {
             class getCityData { file = "\x\a3urf\addons\core\fn_getCityData.sqf"; };
             class prepareMarkerArrays { file = "\x\a3urf\addons\core\fn_prepareMarkerArrays.sqf"; };
