@@ -8,7 +8,7 @@ import re
 
 EXPECTED = {'independent_of_infection', 'occupied_mutex_waits',
             'released_mutex_completes', 'foreign_owner_unchanged',
-            'array_append', 'object_role_roundtrip', 'mutex_released'}
+            'array_append', 'object_created', 'object_role_added', 'object_role_roundtrip', 'mutex_released'}
 EXPECTED |= {f'concurrent_{mode}_{i}' for mode in ('add', 'remove') for i in range(10)}
 
 def collect(path, fixed):

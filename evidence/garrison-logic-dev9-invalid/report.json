@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "sha256": "c67a4b32a3109e2532a3d4477c098248698c3af6490c04981d7bbd66801a983e",
+  "scope": "Native isolated garrison concurrency without Infection; not full campaign or multiplayer acceptance",
+  "validation": {
+    "one_run": false,
+    "expected_environment": true,
+    "schema": false,
+    "checks_once": false,
+    "checks_pass": true,
+    "no_errors": false,
+    "completion_matches": false
+  },
+  "records": [
+    [
+      "check",
+      "independent_of_infection",
+      true,
+      []
+    ]
+  ],
+  "failed": [],
+  "errors": [
+    "18:13:13 Error in expression <[\"_detail\",[]]];",
+    "18:13:13   Error Undefined variable in expression: _passed",
+    "18:13:13 Error in expression <_actual=+(garrison getVariable _marker);_actual sort true;_roles sort true;",
+    "18:13:13   Error Undefined variable in expression: _actual"
+  ],
+  "malformed": [
+    "18:13:13 \"[REDUX_GARRISON] [\"\"check\"\",\"\"concurrent_remove_0\"\",any,[scalar]]\""
+  ]
+}

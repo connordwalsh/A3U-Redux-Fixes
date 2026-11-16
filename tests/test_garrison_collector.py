@@ -19,7 +19,7 @@ class GarrisonCollector(unittest.TestCase):
             self.assertFalse(module['collect'](path, False)['accepted'])
             for damaged in (valid + '\nError: injected', valid + '\n' + valid,
                             valid.replace('concurrent_add_0', 'unknown_check'),
-                            valid.rsplit('\n', 1)[0], valid.replace('"complete", 27', '"complete", 26')):
+                            valid.rsplit('\n', 1)[0], valid.replace('"complete", 29', '"complete", 28')):
                 path.write_text(damaged)
                 self.assertFalse(module['collect'](path, True)['accepted'])
 

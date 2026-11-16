@@ -1,17 +1,17 @@
-// Keep Ultimate's ownership, role conversion and roster update rules intact.
-// Scheduled scripts can yield between its mutex test and acquisition, allowing
-// concurrent updates to overwrite a newer roster with an older local snapshot.
+// Serialize callers, while retaining Ultimate's scheduled update and publication.
 if (!isServer) exitWith {};
 if (!canSuspend) exitWith {_this spawn A3A_fnc_garrisonUpdate};
-private _updated = false;
+private _acquired = false;
 waitUntil {
-    // Acquire and perform the native read/modify/write without a scheduling
-    // boundary. Never enter its waitUntil while the shared mutex is occupied.
     isNil {
-        if (!garrisonIsChanging) then {
-            _this call A3URF_fnc_originalGarrisonUpdate;
-            _updated = true;
+        if !(missionNamespace getVariable ["A3URF_garrisonBusy",false]) then {
+            A3URF_garrisonBusy = true;
+            _acquired = true;
         };
     };
-    _updated
+    _acquired
 };
+// Keep the native call scheduled: publication inside an unscheduled transaction
+// failed the diagnostic. The entry lock admits only one native writer at a time.
+_this call A3URF_fnc_originalGarrisonUpdate;
+A3URF_garrisonBusy = false;

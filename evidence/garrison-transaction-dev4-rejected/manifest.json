@@ -1,0 +1,11 @@
+{
+  "build.json": "8611d443af33baca8f3ef4ccd40a4189b078800b9ba8e724b925f615a7d769a0",
+  "fixture\\description.ext": "495c856941ecaa653ee7d3e6eaa0cad651f22c2a303a2cda9eea36113c7a46f8",
+  "fixture\\initServer.sqf": "978197c3457bc2bf65258927565d6ebeac98e53bff50b6ea92fc9888ef37fb88",
+  "fixture\\mission.sqm": "d642f7fb505589f929d9e30c76f1a56bd3a72650d36e32d57efe5904ee70dfaf",
+  "launch.json": "521138da87cb923c72cb734932d1a06e6fee18d52507cae3d5026a505a9adb42",
+  "probe.rpt": "9fb9dc8940bdbb0b66becb6c4969cbe5f21f3bbca6cfdba5ac362d14f2fc062a",
+  "production\\config.cpp": "c9b1a00bba562dca8293006aac2cc6d7b68e133d1f8365f87792285256d89023",
+  "production\\fn_garrisonUpdate.sqf": "571049b4ea4a0366c6af700c839303ac49708de126494465237176aef5a8a601",
+  "report.json": "42f25fd9c35394e04a99d55f468a6beb0cc862c2c472b0514a6a9970604085c8"
+}

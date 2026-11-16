@@ -40,3 +40,25 @@ This candidate is rejected, not ready to merge. Next investigation should record
 execution context, arguments and before/after state inside the candidate's
 transaction, and verify whether roster changes occur after worker completion.
 Do not weaken the clearance gate or discard persistent roster entries.
+
+## Publication controls
+
+Transaction Dev4 recorded the delegated native mutation but did not reach the
+following diagnostic statement; repeated attempts produced engine GIAS stack
+errors. It was stopped and all errors are preserved. Direct atomic mutation
+(Dev5) and explicit worker completion counters (Dev6) still failed. The counters
+recorded matching entries/exits for all workers, ruling out the initial suspicion
+that the test simply failed to wait for them.
+
+Changing only the publication flag to false in Dev7 passed all 27 local checks
+with zero errors. This is a diagnostic control only: it removes multiplayer/JIP
+publication and must never be deployed as a fix. Restoring publication with a
+separate entry lock and a scheduled native call (Dev8, current candidate) failed
+again. The next comparison changes only the namespace storage object.
+
+Dev9's game-logic comparison was invalid because createVehicle did not create the
+logic. The corrected control uses createUnit in a sideLogic group. This also
+exposed a weak earlier object-role test: a null object could leave the roster
+unchanged and pass its round-trip assertion. The current 29-check collector now
+requires a real object and verifies its role is actually appended before removal.
+Earlier 27-check archives do not prove object-role conversion.

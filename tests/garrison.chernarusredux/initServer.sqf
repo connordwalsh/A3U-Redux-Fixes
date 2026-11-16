@@ -14,11 +14,13 @@ if (!isServer) exitWith {};
     garrison=[true] call A3A_fnc_createNamespace;
     sidesX=[true] call A3A_fnc_createNamespace;
     Occupants=west;Invaders=east;teamPlayer=independent;garrisonIsChanging=false;
+    A3URF_entries=0;A3URF_exits=0;A3URF_unscheduled=0;A3URF_contextInside=0;
     private _marker="garrison_regression";
     private _wait={params ["_handles"];private _deadline=diag_tickTime+30;
         diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] waiting %1",[count _handles,{scriptDone _x} count _handles,canSuspend]];
         waitUntil {sleep 0.01;(_handles findIf {!scriptDone _x})==-1 || {diag_tickTime>=_deadline}};
         diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] waited %1",[count _handles,{scriptDone _x} count _handles,canSuspend]];
+        diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] counters %1",[A3URF_entries,A3URF_exits,A3URF_unscheduled,A3URF_contextInside]];
         (_handles findIf {!scriptDone _x})==-1};
     // Multiple saved roles and duplicate roles expose stale snapshot writes.
     for "_round" from 0 to 9 do {
@@ -52,8 +54,10 @@ if (!isServer) exitWith {};
     ["foreign_owner_unchanged",(garrison getVariable _marker) isEqualTo ["keep"] && {!garrisonIsChanging}] call _check;
     [["a","b"],west,_marker,2] call A3A_fnc_garrisonUpdate;
     ["array_append",(garrison getVariable _marker) isEqualTo ["keep","a","b"]] call _check;
-    private _actor="Logic" createVehicleLocal [0,0,0];_actor setVariable ["unitType","object_role"];
+    private _actor="Land_HelipadEmpty_F" createVehicleLocal [0,0,0];_actor setVariable ["unitType","object_role"];
+    ["object_created",!isNull _actor] call _check;
     [_actor,west,_marker,1] call A3A_fnc_garrisonUpdate;
+    ["object_role_added",(garrison getVariable _marker) isEqualTo ["keep","a","b","object_role"]] call _check;
     [_actor,west,_marker,-1] call A3A_fnc_garrisonUpdate;
     ["object_role_roundtrip",(garrison getVariable _marker) isEqualTo ["keep","a","b"]] call _check;
     deleteVehicle _actor;
