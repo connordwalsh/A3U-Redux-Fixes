@@ -1,1 +1,2 @@
 /evidence/**/*.rpt -text
+/evidence/crate-*/** -text
