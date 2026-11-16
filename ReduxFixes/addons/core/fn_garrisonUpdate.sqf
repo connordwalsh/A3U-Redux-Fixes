@@ -14,4 +14,6 @@ waitUntil {
 // Keep the native call scheduled: publication inside an unscheduled transaction
 // failed the diagnostic. The entry lock admits only one native writer at a time.
 _this call A3URF_fnc_originalGarrisonUpdate;
+private _publishedFrame=diag_frameNo;
+waitUntil {diag_frameNo>_publishedFrame};
 A3URF_garrisonBusy = false;

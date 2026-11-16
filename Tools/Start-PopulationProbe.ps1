@@ -2,7 +2,8 @@ param(
     [Parameter(Mandatory=$true)][string]$SteamLibrary,
     [Parameter(Mandatory=$true)][string]$ArmaTools,
     [ValidateSet('Baseline','Fixed')][string]$Mode='Fixed',
-    [ValidateSet('GarrisonLogic','Garrison','Population','Pricing','Market','Negative','Markers','Parking','HCEmpty','HCLeader','HCLogged','HCMarta','HCDeferred','SmartQuiet','SmartLogged','SmartCalls','AddonActivation','CrateStock','CrateEmpty','CrateRuntime','CratePlacedStock','CratePlacedEmpty','CrateGuards')][string]$Suite='Population',
+    [switch]$NoLoopback,
+    [ValidateSet('Publication','GarrisonLogic','Garrison','Population','Pricing','Market','Negative','Markers','Parking','HCEmpty','HCLeader','HCLogged','HCMarta','HCDeferred','SmartQuiet','SmartLogged','SmartCalls','AddonActivation','CrateStock','CrateEmpty','CrateRuntime','CratePlacedStock','CratePlacedEmpty','CrateGuards')][string]$Suite='Population',
     [ValidateSet('chernarusredux','Altis')][string]$World='chernarusredux',
     [ValidateRange(1024,65531)][int]$Port=5102
 )
@@ -44,12 +45,13 @@ foreach ($mod in $mods) {if (!(Test-Path -LiteralPath $mod)) {throw "Missing tes
 $config=Join-Path $profile 'server.cfg'
 @"
 hostname="Redux population regression";
-maxPlayers=1;loopback=1;upnp=0;persistent=1;
+maxPlayers=$(if ($Suite -eq 'Publication') {2} else {1});loopback=$(if ($NoLoopback) {0} else {1});upnp=0;persistent=1;
+$(if ($Suite -eq 'Publication') {'headlessClients[]={"127.0.0.1"};localClient[]={"127.0.0.1"};BattlEye=0;'})
 class Missions {class Probe {template="$missionName";difficulty="Regular";};};
 "@ | Set-Content $config -Encoding ASCII
 $launchArgs=@('-autoInit','-noSound','-ip=127.0.0.1',('-port='+$Port),('-name=A3URF_Population_'+$Mode),
     ('"-profiles={0}"' -f $profile),('"-config={0}"' -f $config),('"-mod={0}"' -f ($mods -join ';')))
 $process=Start-Process -FilePath (Join-Path $game 'arma3server_x64.exe') -ArgumentList $launchArgs -WorkingDirectory $game -WindowStyle Hidden -PassThru
-$receipt=@{ProcessId=$process.Id;Mode=$Mode;Profile=$profile;StartedUTC=[DateTime]::UtcNow.ToString('o');MissionSHA256=(Get-FileHash $target).Hash}
+$receipt=@{NoLoopback=[bool]$NoLoopback;ProcessId=$process.Id;Mode=$Mode;Profile=$profile;StartedUTC=[DateTime]::UtcNow.ToString('o');MissionSHA256=(Get-FileHash $target).Hash}
 $receipt | ConvertTo-Json | Set-Content (Join-Path $profile 'launch.json') -Encoding UTF8
 [pscustomobject]$receipt

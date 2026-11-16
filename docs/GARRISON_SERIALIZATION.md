@@ -62,3 +62,13 @@ exposed a weak earlier object-role test: a null object could leave the roster
 unchanged and pass its round-trip assertion. The current 29-check collector now
 requires a real object and verifies its role is actually appended before removal.
 Earlier 27-check archives do not prove object-role conversion.
+
+## Publication overwrite isolated; transport validation incomplete
+
+Dev10 through Dev14 are preserved with exact test inputs and logs. Corrected object creation and actual object-role insertion are included in the 29-check collector. Proper game-logic storage, initialized network IDs, waiting an additional frame between writes, and disabling the launcher's loopback setting did not resolve lost updates.
+
+Dev14 directly writes [1] publicly, [2] publicly, then [3] locally in one unscheduled block. Immediate reads reflect each write, but after 0.2 seconds and after 1 second the value is [2]. This reproduces delayed overwrite without garrisonUpdate and shifts the investigation from the proposed lock to publication. The frame-wait candidate remains rejected; do not merge or deploy it.
+
+Dev15 attempts a late-joining headless-client comparison of boolean publication against numeric -2 publication. The server times out waiting for the client. Neither late-join nor live synchronization is established. The client never logs mission entry. Socket inspection found overlapping port 11004 bindings, but the cause is unproven. Both isolated processes were stopped and absence verified before archiving. See evidence/garrison-publication-client-dev15-timeout.
+
+Next gate: establish a working local headless connection and verify late-join plus live values before selecting any replacement publication mechanism. Removing public synchronization is not an acceptable fix. Then rerun the 29-check garrison suite and the real Infection Liquidation campaign test. No additional faction development is in scope.
