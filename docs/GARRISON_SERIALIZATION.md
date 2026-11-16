@@ -6,11 +6,11 @@ clearance ledger correctly counted all 16 deaths, but native roster entries
 remained and prevented mission capture.
 
 The instrumented native receiver recorded all 16 entries and all 16 exits.
-Its roster snapshots regained roles removed by preceding calls, demonstrating
-overlapping read/modify/write operations. The native scheduled mutex check and
-assignment are separate operations; a scheduler interruption can let another
-update pass the check before acquisition. The trace run is diagnostic evidence,
-not acceptance, and its completion and exact archive remain pending.
+Its roster snapshots regained roles removed by preceding calls. The separate
+scheduled mutex check and assignment suggested overlapping read/modify/write
+operations, but the first serialization candidate did not resolve the defect.
+The precise mechanism is still unproven. The completed trace is diagnostic
+evidence, not acceptance.
 
 The fix delegates to the unchanged Ultimate implementation in an unscheduled
 transaction only when its shared mutex is free. Waiting remains scheduled;
@@ -30,4 +30,13 @@ checks in both Fixed and Baseline controls. Fixed Dev2 logs all 128 worker handl
 as finished before each assertion, but still fails. Preserve these rejected
 results; the worker/call lifecycle needs further investigation before attributing
 every focused failure to production. The candidate has not passed acceptance.
-The full native Liquidation run with this candidate is separately pending.
+Fixed Dev3 confirms the candidate function is compiled, but still fails 12 of
+27 focused checks. The compiled native-function log is truncated by the engine's
+log-line limit and must not be treated as a complete runtime-code dump.
+
+The full native Liquidation run with the candidate also retains three roster
+entries after all defenders die. The configured receiver path points to the fix.
+This candidate is rejected, not ready to merge. Next investigation should record
+execution context, arguments and before/after state inside the candidate's
+transaction, and verify whether roster changes occur after worker completion.
+Do not weaken the clearance gate or discard persistent roster entries.

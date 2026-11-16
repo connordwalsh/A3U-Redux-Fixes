@@ -6,6 +6,10 @@ if (!isServer) exitWith {};
         _checks=_checks+1;if (!_passed) then {_failures pushBack _name};
         diag_log format ["[REDUX_GARRISON] %1",["check",_name,_passed,_detail]]};
     diag_log format ["[REDUX_GARRISON] %1",["start",worldName,isClass(configFile >> "CfgPatches" >> "A3URF_core")]];
+    diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] receiver %1",str A3A_fnc_garrisonUpdate];
+    if (!isNil "A3URF_fnc_originalGarrisonUpdate") then {
+        diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] native %1",str A3URF_fnc_originalGarrisonUpdate];
+    };
     ["independent_of_infection",!isClass(configFile >> "CfgPatches" >> "A3I_core")] call _check;
     garrison=[true] call A3A_fnc_createNamespace;
     sidesX=[true] call A3A_fnc_createNamespace;
