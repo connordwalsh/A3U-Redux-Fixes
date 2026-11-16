@@ -20,3 +20,14 @@ native. Unscheduled callers are moved to a scheduled worker before waiting.
 Validation pending: build, actual native queued-defender Liquidation completion,
 simultaneous additions/removals, occupied mutex, ownership rejection, and ordinary
 campaign behavior. No release certification or player/multiplayer claim.
+
+Build passed. The native receiver trace completed with 16 received/finished
+updates but two stale roles, five failed mission checks and 19 passing campaign
+checks. Infection's `native-liquidation-diag4-rejected` preserves that evidence.
+
+The independent focused fixture currently fails concurrent additions and mutex
+checks in both Fixed and Baseline controls. Fixed Dev2 logs all 128 worker handles
+as finished before each assertion, but still fails. Preserve these rejected
+results; the worker/call lifecycle needs further investigation before attributing
+every focused failure to production. The candidate has not passed acceptance.
+The full native Liquidation run with this candidate is separately pending.
