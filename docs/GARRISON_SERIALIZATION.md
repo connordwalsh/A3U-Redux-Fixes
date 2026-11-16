@@ -76,3 +76,9 @@ Next gate: establish a working local headless connection and verify late-join pl
 ## Native client result (Dev18)
 
 A client bound to 127.0.0.2 successfully joined the server bound to 127.0.0.1 after disabling the loopback-only server setting. Dev16 timed out and Dev17 was aborted after menu loops; both are preserved. Dev18 completes on both server and headless client. Initial JIP values: global [11], numeric -2 []. Live values: global [33], numeric -2 [44]. Numeric publication alone is rejected as a production fix because it does not provide the required initial snapshot to late joiners. The next candidate needs explicit persistent client delivery while keeping authoritative server writes local, followed by focused and native campaign regression tests.
+
+## Connected-client and persistent-delivery controls
+
+Dev19 reproduces the publication overwrite with a connected headless client: 29 checks, 11 failures, zero matched errors. The local [3] control again reverts to published [2]. This is not limited to an empty server.
+
+Dev20 confirms remoteExecCall setVariable targeted to -2 with a stable JIP identifier delivers [55] to the first late joiner, [66] live, and [66] to a subsequent fresh joiner. The server retains its deliberate local [77]. No garrison integration is accepted yet: direct native writes outside garrisonUpdate can make a stored JIP roster stale. The integration must preserve current authoritative state after capture/reset/load as well as concurrent casualties.
