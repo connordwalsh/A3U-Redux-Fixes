@@ -31,3 +31,10 @@ The full campaign test additionally checks all four cargo categories and the
 container list before JNA startup can clear them. Save/restart/reload results
 are recorded in the Infection validation evidence. Connected-player, JIP and
 manual playthrough checks remain open.
+
+The normal full-campaign write and fresh-process reload each pass all 19 checks
+and a 75-second background window, with zero records under the unchanged error
+matcher. The HQ worker and empty contents are checked before JNA initialization.
+Candidate PBO: `CCFAEEB0245C8916327AAA179A7A111EC86080F1649EA1FB57D9E58F4374586E`.
+See Infection `docs/research/REDUX_CRATE_VALIDATION.md` and the preserved
+`redux-companion-crate-*` evidence. All 34 companion evidence tests pass.

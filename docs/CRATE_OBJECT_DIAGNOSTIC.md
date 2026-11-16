@@ -1,13 +1,14 @@
 # Remaining startup object errors: crate investigation
 
-Status: unresolved. No production fix or release gate is claimed here.
+Status: diagnosis complete; the guarded correction and its bounded validation
+are described in HQ_INVENTORY_FIX.md. No release gate is claimed here.
 
 Follow-up: [Infection PR 69](https://github.com/connordwalsh/A3UExtender-Infection/pull/69)
 now identifies the two IDs as the HQ crate's backpacks in the complete official
 mission. Native early clearing reproduces both errors; the diagnostic control
 that retains inventory eliminates them. The experiments below predate that
-identification and remain useful negative controls. A correction that preserves
-the intended empty HQ inventory is still outstanding.
+identification and remain useful negative controls. The subsequent correction
+preserves the intended empty HQ inventory; see HQ_INVENTORY_FIX.md.
 
 The full campaign trace observed HQ crate `boxX` (`IG_supplyCrate_F`) at
 network ID `2:8`, followed by missing-object errors for `2:9` and `2:10`.
