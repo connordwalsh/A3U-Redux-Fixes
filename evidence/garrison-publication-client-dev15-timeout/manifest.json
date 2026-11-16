@@ -28,18 +28,6 @@
     "SHA256": "9B635054ECA3DA83304BB58307A09487842F8F6B16426789171E6D299509E4B1"
   },
   {
-    "Path": "client-profile\\Users\\conno\\Arma3.cfg",
-    "SHA256": "04085ED69E34EFE78203583FC0204A62211800EF2F2FECDFC4383ACBFB69223C"
-  },
-  {
-    "Path": "client-profile\\Users\\headlessclient\\headlessclient.Arma3Profile",
-    "SHA256": "9F87F124A5DCBA17F4B2EC4233C2AE798C543FAA9B7096458B7E2D3771F0B0E1"
-  },
-  {
-    "Path": "client-profile\\Users\\headlessclient\\headlessclient.vars.Arma3Profile",
-    "SHA256": "725639440613AD9BC9BD65C5A4970FE2B0E832E6CC0BD1CD2B301EF8706ABE90"
-  },
-  {
     "Path": "publication.chernarusredux\\description.ext",
     "SHA256": "495C856941ECAA653EE7D3E6EAA0CAD651F22C2A303A2CDA9EEA36113C7A46F8"
   },
@@ -78,29 +66,5 @@
   {
     "Path": "server-profile\\DataCache\\cache.ch",
     "SHA256": "266D22982F8672AB5FEC3AD853B6FF0115A216F748242A848096BD2B93429B74"
-  },
-  {
-    "Path": "server-profile\\Units\\55SOR\\0zjBNoLdwv.paa",
-    "SHA256": "800A29B30959C81CD57D8603E9357B66090679386245E413F9C110C52D3C3520"
-  },
-  {
-    "Path": "server-profile\\Units\\BFSQN\\J7Z5oe8OV2.paa",
-    "SHA256": "4CF9C1B5BDDBC0A525FD7F1FF8358BCF9F5606E23FE5642F04E8776309E5B112"
-  },
-  {
-    "Path": "server-profile\\Units\\TF362\\KtaorGJyEF.paa",
-    "SHA256": "8B6E5B4A6D223340B938EB2D184F4F9A9EA7C715047781E3C1E583F862D1B537"
-  },
-  {
-    "Path": "server-profile\\Users\\A3URF_Population_Baseline\\A3URF_Population_Baseline.Arma3Profile",
-    "SHA256": "9F87F124A5DCBA17F4B2EC4233C2AE798C543FAA9B7096458B7E2D3771F0B0E1"
-  },
-  {
-    "Path": "server-profile\\Users\\A3URF_Population_Baseline\\A3URF_Population_Baseline.vars.Arma3Profile",
-    "SHA256": "293DE4CE5C849A0C849483B77B7253F4F47AA3D14F271B2BF8AD0D7A5E2B1260"
-  },
-  {
-    "Path": "server-profile\\Users\\conno\\Arma3.cfg",
-    "SHA256": "04085ED69E34EFE78203583FC0204A62211800EF2F2FECDFC4383ACBFB69223C"
   }
 ]
