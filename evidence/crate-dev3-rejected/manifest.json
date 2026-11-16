@@ -1,0 +1,11 @@
+{
+  "scope": "Diagnostic evidence; not acceptance or release proof",
+  "files": {
+    "cratestock/fixture/description.ext": "5bb0ffc96289f485c70c5588075c7409f258cd23a7d7c14c6e4b4b6dcb7373f4",
+    "cratestock/fixture/initServer.sqf": "f98aa5eb61353112a643eb8d7b7ab02ebc4bfa08368a57e220c85a5b45bb153d",
+    "cratestock/fixture/mission.sqm": "5144173ec9472707abc6f69fba622b31f5ec90c99c0855dc211439bfa4bad477",
+    "cratestock/fixture/source.json": "707dad708576ab1ffc17b4b76eb2b29d6a0d12a4b9c29eba0c70ab80617277d2",
+    "cratestock/launch.json": "8732ac1d452139f492d0e54a84e4be276a784461bb1da1651d71c92ef636a57a",
+    "cratestock/probe.rpt": "3995931fd2285492f75d6bf18383ee6a28b8d05b6746d4e5461fbb7e93455d9a"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "scope": "Diagnostic evidence; not acceptance or release proof",
+  "files": {
+    "fixture/description.ext": "38247f410ce7dc7c86f4e76e76952d714dea944622ca46eba629b2b12ecc3f6f",
+    "fixture/initServer.sqf": "003413ce761286e290048ecedb41b70b7d06fdc0944fdb0fce8d702b39453057",
+    "fixture/mission.sqm": "d642f7fb505589f929d9e30c76f1a56bd3a72650d36e32d57efe5904ee70dfaf",
+    "launch.json": "8ee014f755f62f90f91e5d18e4fd8ced9bc0e102d0cda8ecb1e5cb72e3eff25d",
+    "probe.rpt": "de35b407652255c7d082a08e4aeb54becc52cba19680b5a41335ceb6229bacc1"
+  }
+}
