@@ -2,7 +2,7 @@ class CfgPatches {
     class A3URF_core {
         name = "A3U Redux Fixes";
         author = "A3U Redux Fixes contributors";
-        requiredAddons[] = {"A3A_core", "A3_Missions_F_Oldman", "A3_Modules_F_Hc", "A3_Functions_F_Curator"};
+        requiredAddons[] = {"A3A_core", "A3_Missions_F_Oldman", "A3_Modules_F_Hc", "A3_Functions_F_Curator", "A3_3DEN"};
         requiredVersion = 2.22;
         units[] = {}; weapons[] = {};
         version = 0.1;
@@ -20,6 +20,7 @@ class CfgFunctions {
             class repairParkingMarkers { file = "\x\a3urf\addons\core\fn_repairParkingMarkers.sqf"; };
             class initHighCommand { file = "\x\a3urf\addons\core\fn_initHighCommand.sqf"; };
             class originalActivateAddons { file = "\A3\functions_f_curator\Misc\fn_activateAddons.sqf"; };
+            class originalInitAmmoBox { file = "\A3\3DEN\Functions\fn_initAmmoBox.sqf"; };
         };
     };
     class A3A {
@@ -39,6 +40,11 @@ class CfgFunctions {
     class A3_Functions_F_Curator {
         class Misc {
             class activateAddons { file = "\x\a3urf\addons\core\fn_activateAddons.sqf"; };
+        };
+    };
+    class 3DEN {
+        class Default {
+            class initAmmoBox { file = "\x\a3urf\addons\core\fn_initAmmoBox.sqf"; };
         };
     };
 };

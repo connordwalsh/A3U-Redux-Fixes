@@ -1,0 +1,37 @@
+{
+  "accepted": true,
+  "altis": true,
+  "scope": "Native crate delegation only; no campaign or player acceptance",
+  "sha256": "4e46095d883051030dc22ca36db882d4b3bae94e5323cdb2e615c686cf93d935",
+  "checks": [
+    [
+      "other_mission_not_deferred",
+      true
+    ],
+    [
+      "other_mission_empty",
+      true
+    ],
+    [
+      "getter_native",
+      true
+    ],
+    [
+      "custom_cargo_retained",
+      true
+    ],
+    [
+      "string_cargo_native",
+      true
+    ],
+    [
+      "runtime_not_deferred",
+      true
+    ]
+  ],
+  "errors": [
+    "23:39:30 \"A3URF_Population_Fixed/BIS_fnc_log: [A3URF_fnc_originalSmartMarkers] Error: SmartMarker system has not been yet initialized.\""
+  ],
+  "malformed": [],
+  "complete_count": 1
+}

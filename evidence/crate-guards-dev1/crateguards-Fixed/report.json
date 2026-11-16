@@ -1,0 +1,35 @@
+{
+  "accepted": true,
+  "altis": false,
+  "scope": "Native crate delegation only; no campaign or player acceptance",
+  "sha256": "8d07320310c7d0f252336e7313ef6aff855d5205f3d1d0ba2cae0be925fe7959",
+  "checks": [
+    [
+      "other_mission_not_deferred",
+      true
+    ],
+    [
+      "other_mission_empty",
+      true
+    ],
+    [
+      "getter_native",
+      true
+    ],
+    [
+      "custom_cargo_retained",
+      true
+    ],
+    [
+      "string_cargo_native",
+      true
+    ],
+    [
+      "runtime_not_deferred",
+      true
+    ]
+  ],
+  "errors": [],
+  "malformed": [],
+  "complete_count": 1
+}

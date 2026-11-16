@@ -1,0 +1,17 @@
+{
+  "files": {
+    "build-manifest.json": "647260b8a4ed8bf417a9d70d15f1c327bb1a86d0ca4fcada12e729ba65f3d0b1",
+    "crateguards-Fixed/fixture/description.ext": "c51f9a9995b727ecebdc3a1ae326cd75cad3b87b9d147e9a3ff1fa8d49c386ac",
+    "crateguards-Fixed/fixture/initServer.sqf": "5abcd061a49db570027895d1ddedb03177a84b6c9cf4e2183a51713116f8f636",
+    "crateguards-Fixed/fixture/mission.sqm": "2aa45dd0914600acd76cd96fdd86d46320e1055506199ddc3088de2fbc8a876e",
+    "crateguards-Fixed/launch.json": "7b9eb40b956ae1e33e42c7c51d5438f71a1799e4d777eb4a8b127e49b2aed35f",
+    "crateguards-Fixed/probe.rpt": "8d07320310c7d0f252336e7313ef6aff855d5205f3d1d0ba2cae0be925fe7959",
+    "crateguards-Fixed/report.json": "f3e39b10d6a91371d25868fba57e1e1c4474650a6a06fd72540dc0d43076409f",
+    "crateguards-Fixed-Altis/fixture/description.ext": "c51f9a9995b727ecebdc3a1ae326cd75cad3b87b9d147e9a3ff1fa8d49c386ac",
+    "crateguards-Fixed-Altis/fixture/initServer.sqf": "5abcd061a49db570027895d1ddedb03177a84b6c9cf4e2183a51713116f8f636",
+    "crateguards-Fixed-Altis/fixture/mission.sqm": "2aa45dd0914600acd76cd96fdd86d46320e1055506199ddc3088de2fbc8a876e",
+    "crateguards-Fixed-Altis/launch.json": "a79c8ed8a9a0ad60df336cc6c0bf2d31ab39347be9a67e9b0565a640262ee0dc",
+    "crateguards-Fixed-Altis/probe.rpt": "4e46095d883051030dc22ca36db882d4b3bae94e5323cdb2e615c686cf93d935",
+    "crateguards-Fixed-Altis/report.json": "8ed3060d04a4b7238d09eb772180aec2104860b3a52b20c1080093ff28079f47"
+  }
+}
