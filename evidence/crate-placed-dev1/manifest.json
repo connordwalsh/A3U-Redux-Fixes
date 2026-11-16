@@ -1,0 +1,15 @@
+{
+  "scope": "Placed crate diagnostic; not Eden or campaign acceptance",
+  "files": {
+    "crateplacedempty/fixture/description.ext": "c51f9a9995b727ecebdc3a1ae326cd75cad3b87b9d147e9a3ff1fa8d49c386ac",
+    "crateplacedempty/fixture/initServer.sqf": "a7d0b686734a555a18835981f31936af2a0e390d7db8bd05378a4d7c25acb885",
+    "crateplacedempty/fixture/mission.sqm": "2aa45dd0914600acd76cd96fdd86d46320e1055506199ddc3088de2fbc8a876e",
+    "crateplacedempty/launch.json": "cba6b44089c06dfa485ef26d606e21a6687f3d7f149932b77945c70cf7e037f4",
+    "crateplacedempty/probe.rpt": "39a01eb36c272ccc3ce15a91c8b0b17367a88a748ee531af732cbaab9ce6adf4",
+    "crateplacedstock/fixture/description.ext": "c51f9a9995b727ecebdc3a1ae326cd75cad3b87b9d147e9a3ff1fa8d49c386ac",
+    "crateplacedstock/fixture/initServer.sqf": "a7d0b686734a555a18835981f31936af2a0e390d7db8bd05378a4d7c25acb885",
+    "crateplacedstock/fixture/mission.sqm": "f7ac45b97ca6b4910e1062cbd3d8837bb428bcdedff54d67fb5870010e5bc057",
+    "crateplacedstock/launch.json": "a5b4131d38bbfca557d1da4be4eea3176eace364079c0a3c90ff762fe2f26c2b",
+    "crateplacedstock/probe.rpt": "e2e2febc1a375ed2ec1d06c644b85f1c9d1d5034a29e4ebed0fc053d929707e9"
+  }
+}

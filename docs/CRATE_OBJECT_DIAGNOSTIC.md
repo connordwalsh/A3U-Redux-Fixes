@@ -50,6 +50,18 @@ stopped after executable and dedicated-profile checks.
 
 ## Next investigation
 
+The follow-up `crate-placed-dev1` pair uses version-12 mission objects and their
+startup init fields. Both complete. Stock cargo retains the two backpacks at
+`2:8` and `2:9` beneath crate `2:7`; the empty variant removes all ten containers.
+Neither emits the missing-object records. Unlike the later runtime call, the
+startup empty-string call also produces no undefined-variable diagnostics.
+This demonstrates that call timing/context matters. It does not reproduce the
+Eden attribute path or establish that the complete campaign is error-free.
+
+The generator is `Tools/create_placed_crate_probe.py`; its fixtures deliberately
+use the known-working version-12 format rather than claiming to repair Eden
+loading. Next, trace the installed initializer in the complete official mission.
+
 Use a working startup fixture to compare stock cargo with explicit empty cargo,
 then confirm any finding in the complete native campaign. Do not suppress
 missing-object logs, remove HQ functionality, or change general crate behavior
