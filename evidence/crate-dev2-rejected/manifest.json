@@ -1,0 +1,17 @@
+{
+  "scope": "Diagnostic evidence; not acceptance or release proof",
+  "files": {
+    "crateempty/fixture/description.ext": "5bb0ffc96289f485c70c5588075c7409f258cd23a7d7c14c6e4b4b6dcb7373f4",
+    "crateempty/fixture/initServer.sqf": "f98aa5eb61353112a643eb8d7b7ab02ebc4bfa08368a57e220c85a5b45bb153d",
+    "crateempty/fixture/mission.sqm": "25e9678f13551b3d06490b8923d00f4b58633fdc7b9e3bb078eeb579481fd634",
+    "crateempty/fixture/source.json": "06c4343ccf666cf07ba9652d7f071d7bb06b05820fd0dd784f9143ca667277b0",
+    "crateempty/launch.json": "a114e1f399f2cda52a51134be767bfbef170bbc9f649257a251d53eb3bad3a73",
+    "crateempty/probe.rpt": "3ffbffcb07a2f385c8cf3886a7d1e20ae2f33922abe4e8c6b78091af7ad00ba0",
+    "cratestock/fixture/description.ext": "5bb0ffc96289f485c70c5588075c7409f258cd23a7d7c14c6e4b4b6dcb7373f4",
+    "cratestock/fixture/initServer.sqf": "f98aa5eb61353112a643eb8d7b7ab02ebc4bfa08368a57e220c85a5b45bb153d",
+    "cratestock/fixture/mission.sqm": "59476e7d157b8dc6b66861326898911ffdeb63ee9b2e987d76d991ba18553c4e",
+    "cratestock/fixture/source.json": "707dad708576ab1ffc17b4b76eb2b29d6a0d12a4b9c29eba0c70ab80617277d2",
+    "cratestock/launch.json": "6b03b8325641eb579cbb4876ce8bd06589bd71deef9ed5dd9fec1b78b25de133",
+    "cratestock/probe.rpt": "2d17ba3b3e15e4fa73e46fc0a06773d04eddc48155dc587e4aaf88fbe9d757d0"
+  }
+}

@@ -1,0 +1,82 @@
+version=54;
+addons[]=
+{
+	"A3_Ui_F",
+	"A3_Modules_F",
+	"A3_Weapons_F_Ammoboxes",
+	"A3_Characters_F",
+	"A3_Structures_F_EPC_Civ_InfoBoards",
+	"A3_Structures_F_Mil_Flags",
+	"A3_Modules_F_Curator_Curator",
+	"A3_Modules_F_Hc",
+	"A3_Weapons_F",
+	"A3_Structures_F_Ind_Cargo",
+	"A3_Structures_F_Mil_Cargo",
+	"A3_Structures_F_Mil_TentHangar",
+	"A3_Structures_F_Mil_Helipads",
+	"A3_Structures_F_Mil_BagBunker",
+	"A3_Structures_F_Enoch_Civilian_Police",
+	"A3_Structures_F_Ind_Transmitter_Tower",
+	"A3_Structures_F_Mil_Fortification",
+	"A3_Structures_F_Walls",
+	"A3_Signs_F",
+	"A3_Structures_F_Wrecks",
+	"A3_Structures_F_Civ_Garbage",
+	"chernarusredux_buildings_tents",
+	"chernarusredux_buildings_a2",
+	"A3_Structures_F_Enoch_Military_Airfield",
+	"A3_Structures_F_EPA_Mil_Scrapyard",
+	"A3_Structures_F_Items_Vessels",
+	"A3_Structures_F_EPA_Civ_Constructions",
+	"A3_Structures_F_EPC_Civ_Garbage",
+	"A3_Structures_F_Civ_Market",
+	"A3_Structures_F_Civ_Accessories",
+	"CUP_CAStructures_PMC_Ruins",
+	"CUP_CAStructures_Ruins"
+};
+class Mission {class Intel {year=2026;month=11;day=15;hour=12;minute=0;};class Entities {items=2;
+		class Item0
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={381.93536,61.21471,4843.8149};
+				angles[]={6.2581916,4.3424077,0.0099949092};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="boxX";
+			};
+			id=7;
+			type="IG_supplyCrate_F";
+			atlOffset=-0.0027618408;
+			class CustomAttributes
+			{
+				
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+class Item1 {
+ dataType="Group";side="Independent";id=101;
+ class Entities {items=1;class Item0 {
+  dataType="Object";side="Independent";flags=7;id=100;type="I_G_Soldier_TL_F";
+  class PositionInfo {position[]={389.34601,60.222504,4843.9116};};
+  class Attributes {name="probeObserver";isPlayer=1;isPlayable=1;};
+ };};
+};
+};};

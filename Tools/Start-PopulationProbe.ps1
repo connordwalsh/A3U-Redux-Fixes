@@ -2,7 +2,7 @@ param(
     [Parameter(Mandatory=$true)][string]$SteamLibrary,
     [Parameter(Mandatory=$true)][string]$ArmaTools,
     [ValidateSet('Baseline','Fixed')][string]$Mode='Fixed',
-    [ValidateSet('Population','Pricing','Market','Negative','Markers','Parking','HCEmpty','HCLeader','HCLogged','HCMarta','HCDeferred','SmartQuiet','SmartLogged','SmartCalls','AddonActivation')][string]$Suite='Population',
+    [ValidateSet('Population','Pricing','Market','Negative','Markers','Parking','HCEmpty','HCLeader','HCLogged','HCMarta','HCDeferred','SmartQuiet','SmartLogged','SmartCalls','AddonActivation','CrateStock','CrateEmpty','CrateRuntime','CratePlacedStock','CratePlacedEmpty','CrateGuards')][string]$Suite='Population',
     [ValidateSet('chernarusredux','Altis')][string]$World='chernarusredux',
     [ValidateRange(1024,65531)][int]$Port=5102
 )
