@@ -1,3 +1,4 @@
+diag_log format ["[REDUX_TRANSPORT_CLIENT] init %1",[isServer,hasInterface,clientOwner,didJIP]];
 if (isServer) exitWith {};
 [] spawn {
     waitUntil {sleep 0.1;!isNil "A3URF_publicationNamespace" && {!isNull A3URF_publicationNamespace}};

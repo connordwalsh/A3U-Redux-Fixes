@@ -13,7 +13,7 @@ $mods=@('450814997','3020755032','583496184','1128256978') | ForEach-Object {Joi
 $exe=Join-Path $game 'arma3server_x64.exe'
 foreach ($required in @($exe)+$mods) {if (!(Test-Path -LiteralPath $required)) {throw "Missing input: $required"}}
 New-Item -ItemType Directory -Path $profile -Force | Out-Null
-$launchArgs=@('-client','-connect=127.0.0.1',('-port='+$Port),'-noSound',('-name=A3URF_Publication_'+$Instance),
+$launchArgs=@('-client','-ip=127.0.0.2','-connect=127.0.0.1',('-port='+$Port),'-noSound',('-name=A3URF_Publication_'+$Instance),
     ('"-profiles={0}"' -f $profile),('"-mod={0}"' -f ($mods -join ';')))
 $process=Start-Process -FilePath $exe -ArgumentList $launchArgs -WorkingDirectory $game -WindowStyle Hidden -PassThru
 $receipt=@{ProcessId=$process.Id;Profile=$profile;Port=$Port;StartedUTC=[DateTime]::UtcNow.ToString('o');Mods=$mods}
