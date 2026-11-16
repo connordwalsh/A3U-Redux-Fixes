@@ -13,6 +13,8 @@ class CfgFunctions {
     class A3URF {
         tag = "A3URF";
         class Compatibility {
+            class receiveGarrison { file = "\x\a3urf\addons\core\fn_receiveGarrison.sqf"; };
+            class sendGarrison { file = "\x\a3urf\addons\core\fn_sendGarrison.sqf"; };
             class originalGarrisonUpdate { file = "\x\a3a\addons\core\functions\CREATE\fn_garrisonUpdate.sqf"; };
             class originalGetCityData { file = "\x\a3a\addons\core\functions\init\fn_getCityData.sqf"; };
             class originalVehiclePrice { file = "\x\a3a\addons\core\functions\REINF\fn_vehiclePrice.sqf"; };

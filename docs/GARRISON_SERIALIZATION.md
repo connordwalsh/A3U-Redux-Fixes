@@ -82,3 +82,9 @@ A client bound to 127.0.0.2 successfully joined the server bound to 127.0.0.1 af
 Dev19 reproduces the publication overwrite with a connected headless client: 29 checks, 11 failures, zero matched errors. The local [3] control again reverts to published [2]. This is not limited to an empty server.
 
 Dev20 confirms remoteExecCall setVariable targeted to -2 with a stable JIP identifier delivers [55] to the first late joiner, [66] live, and [66] to a subsequent fresh joiner. The server retains its deliberate local [77]. No garrison integration is accepted yet: direct native writes outside garrisonUpdate can make a stored JIP roster stale. The integration must preserve current authoritative state after capture/reset/load as well as concurrent casualties.
+
+## Candidate: local transaction and current-state JIP request
+
+The new candidate writes the authoritative roster locally inside the transaction, then delivers it to clients with a persistent receiveGarrison call. Live delivery applies the roster only on clients and only when sent by the server. JIP execution treats the persistent entry as a request token: sendGarrison validates the campaign namespace and returns its current roster. This avoids restoring a stale cached roster after a native reset/capture/load.
+
+Dev21: all 29 native focused checks pass, zero matched errors. Dev22: first late join receives a native reset made after the patched update; 64 concurrent casualties leave an empty roster on server and client; a second fresh join receives a subsequent native reset rather than the old persistent empty value. Raw logs and exact production inputs are preserved. Real Liquidation campaign validation remains required; no merge or production deployment is approved yet.
