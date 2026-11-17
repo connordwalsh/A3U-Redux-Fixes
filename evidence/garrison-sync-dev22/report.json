@@ -1,0 +1,109 @@
+{
+  "accepted": true,
+  "checks": {
+    "distinct_remote_clients": true,
+    "server_lifecycle": true,
+    "first_join_and_live": true,
+    "second_join_after_native_reset": true,
+    "no_matched_errors": true,
+    "no_malformed_records": true
+  },
+  "sources": [
+    {
+      "file": "arma3server_x64_2026-11-16_18-52-00.rpt",
+      "sha256": "30c9af3166f4fc4ae862c7a813f590d522e8bbc025bd8dcb543d4053d6186efa"
+    },
+    {
+      "file": "arma3server_x64_2026-11-16_18-52-34.rpt",
+      "sha256": "a729884d711f44de9ace510bae176e058aa0d1ad6a92b2699a56d2b205da39b6"
+    },
+    {
+      "file": "arma3server_x64_2026-11-16_18-53-31.rpt",
+      "sha256": "657898b0a94ac1092db9b81278abb08bc10c28bc3e71185ca748bec5c7184a47"
+    }
+  ],
+  "records": [
+    [
+      [
+        "ready",
+        null
+      ],
+      [
+        "initial",
+        [
+          4,
+          true,
+          [
+            "reset_before_join"
+          ]
+        ]
+      ],
+      [
+        "removed",
+        [
+          true,
+          []
+        ]
+      ],
+      [
+        "live",
+        [
+          4,
+          []
+        ]
+      ],
+      [
+        "final",
+        [
+          "latest_native"
+        ]
+      ],
+      [
+        "complete",
+        null
+      ]
+    ],
+    [
+      [
+        "jip",
+        [
+          4,
+          true,
+          [
+            "reset_before_join"
+          ]
+        ]
+      ],
+      [
+        "live",
+        [
+          4,
+          []
+        ]
+      ]
+    ],
+    [
+      [
+        "jip",
+        [
+          5,
+          true,
+          [
+            "latest_native"
+          ]
+        ]
+      ],
+      [
+        "live",
+        [
+          5,
+          [
+            "latest_native"
+          ]
+        ]
+      ]
+    ]
+  ],
+  "errors": [],
+  "malformed": []
+}

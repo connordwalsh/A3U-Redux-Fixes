@@ -1,5 +1,20 @@
-# Garrison update serialization
+# Preserve authoritative garrison updates
 
+The current candidate keeps native roster mutations local to the server inside
+an atomic transaction, then delivers updates to clients. Persistent late-join
+calls request current server state, so native captures, resets and loads do not
+replay an older roster. Role conversion, ownership rejection, mutex waiting and
+Rebel marker refresh behavior are retained.
+
+Validation: 29 native garrison checks pass; the three-log multiplayer validator
+passes live casualty delivery and two late joins around native resets; the real
+Infection Liquidation run passes 17 lifecycle and 19 campaign checks with zero
+matched errors. See garrison-persistent-dev21, garrison-sync-dev22, and Infection
+native-liquidation-fixed2. Player combat, UI and performance acceptance remain
+separate release gates. The notes below preserve the investigation history;
+rejected candidates are not the implementation being proposed for merge.
+
+## Investigation history
 Native Liquidation investigation on 16 November 2026 found that simultaneous
 defender deaths can leave stale entries in Ultimate's saved garrison. Infection's
 clearance ledger correctly counted all 16 deaths, but native roster entries
