@@ -1,0 +1,36 @@
+if (!isServer) exitWith {};
+[] spawn {
+    sleep 3;
+    garrison=[true] call A3A_fnc_createNamespace;
+    sidesX=[true] call A3A_fnc_createNamespace;
+    Occupants=west;Invaders=east;teamPlayer=independent;garrisonIsChanging=false;
+    private _marker="sync_regression";
+    sidesX setVariable [_marker,west];
+    garrison setVariable [_marker,["old"]];
+    ["initial",west,_marker,1] call A3A_fnc_garrisonUpdate;
+    // Simulate a native capture/load after the last patched update.
+    garrison setVariable [_marker,["reset_before_join"],true];
+    publicVariable "garrison";
+    diag_log "[GARRISON_SYNC] ready";
+    private _until=diag_tickTime+180;
+    waitUntil {sleep 0.1;!isNil "A3URF_syncJIP" || {diag_tickTime>=_until}};
+    if (isNil "A3URF_syncJIP") exitWith {diag_log "[GARRISON_SYNC] timeout_jip"};
+    diag_log format ["[GARRISON_SYNC] initial %1",A3URF_syncJIP];
+    private _roles=[];for "_i" from 0 to 63 do {_roles pushBack format ["role_%1",_i mod 7]};
+    garrison setVariable [_marker,+_roles];
+    private _jobs=[];
+    isNil {{_jobs pushBack ([_x,west,_marker,-1] spawn A3A_fnc_garrisonUpdate)} forEach _roles};
+    _until=diag_tickTime+30;
+    waitUntil {sleep 0.01;(_jobs findIf {!scriptDone _x})==-1 || {diag_tickTime>=_until}};
+    sleep 1;
+    diag_log format ["[GARRISON_SYNC] removed %1",[(_jobs findIf {!scriptDone _x})==-1,garrison getVariable _marker]];
+    A3URF_syncStage=true;publicVariable "A3URF_syncStage";
+    _until=diag_tickTime+30;
+    waitUntil {sleep 0.1;!isNil "A3URF_syncLive" || {diag_tickTime>=_until}};
+    if (isNil "A3URF_syncLive") exitWith {diag_log "[GARRISON_SYNC] timeout_live"};
+    diag_log format ["[GARRISON_SYNC] live %1",A3URF_syncLive];
+    garrison setVariable [_marker,["latest_native"],true];
+    sleep 1;
+    diag_log format ["[GARRISON_SYNC] final %1",garrison getVariable _marker];
+    diag_log "[GARRISON_SYNC] complete";
+};

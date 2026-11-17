@@ -34,3 +34,9 @@ Infection gameplay.
 
 No sprint or release gate is closed. Preserve original map/mod files, isolate
 tests and retain rejected reports. Do not suppress errors to make reports pass.
+
+- RF-6: Preserve concurrent garrison casualties and additions without delayed
+  server publication overwriting newer state. Native focused checks (29), live
+  and late-join synchronization around native resets, and real Infection
+  Liquidation (17 lifecycle plus 19 campaign checks) pass. Review evidence in
+  GARRISON_SERIALIZATION.md; this does not certify player/UI/performance gates.

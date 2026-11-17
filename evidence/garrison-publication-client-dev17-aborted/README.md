@@ -1,0 +1,1 @@
+Connection diagnostic aborted before fixture deadline after client repeatedly returned to menu and had no UDP endpoint. Added console log remained empty. Both exact process identities checked, stopped, and absence verified. No synchronization result.

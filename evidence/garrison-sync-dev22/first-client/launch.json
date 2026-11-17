@@ -1,0 +1,14 @@
+{
+  "Mode": "Fixed",
+  "ProcessId": 3768,
+  "Port": 11002,
+  "StartedUTC": "2026-11-16T23:52:34.1402429Z",
+  "Mods": [
+    "F:\\SteamLibrary\\steamapps\\workshop\\content\\107410\\450814997",
+    "F:\\SteamLibrary\\steamapps\\workshop\\content\\107410\\3020755032",
+    "F:\\SteamLibrary\\steamapps\\workshop\\content\\107410\\583496184",
+    "F:\\SteamLibrary\\steamapps\\workshop\\content\\107410\\1128256978",
+    "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\garrison-serialization\\.work\\build\\@A3U_Redux_Fixes"
+  ],
+  "Profile": "E:\\Games\\Arma 3\\Projects\\Zombies Antistasi\\Chernarus Redux Map Change\\.work\\garrison-serialization\\.work\\profiles\\publication-client-Sync1"
+}

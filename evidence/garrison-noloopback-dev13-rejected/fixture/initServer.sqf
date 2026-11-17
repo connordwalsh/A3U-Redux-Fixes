@@ -1,0 +1,68 @@
+if (!isServer) exitWith {};
+[] spawn {
+    sleep 3;
+    private _checks=0;private _failures=[];
+    private _check={params ["_name","_passed",["_detail",[]]];
+        _checks=_checks+1;if (!_passed) then {_failures pushBack _name};
+        diag_log format ["[REDUX_GARRISON] %1",["check",_name,_passed,_detail]]};
+    diag_log format ["[REDUX_GARRISON] %1",["start",worldName,isClass(configFile >> "CfgPatches" >> "A3URF_core")]];
+    diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] receiver %1",str A3A_fnc_garrisonUpdate];
+    if (!isNil "A3URF_fnc_originalGarrisonUpdate") then {
+        diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] native %1",str A3URF_fnc_originalGarrisonUpdate];
+    };
+    ["independent_of_infection",!isClass(configFile >> "CfgPatches" >> "A3I_core")] call _check;
+    garrison=[true] call A3A_fnc_createNamespace;
+    sidesX=[true] call A3A_fnc_createNamespace;
+    diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] network %1",[time,serverTime,diag_tickTime,isMultiplayer,clientOwner,netId garrison,netId sidesX,owner garrison,local garrison]];
+    Occupants=west;Invaders=east;teamPlayer=independent;garrisonIsChanging=false;
+    A3URF_entries=0;A3URF_exits=0;A3URF_unscheduled=0;A3URF_contextInside=0;
+    private _marker="garrison_regression";
+    private _wait={params ["_handles"];private _deadline=diag_tickTime+30;
+        diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] waiting %1",[count _handles,{scriptDone _x} count _handles,canSuspend]];
+        waitUntil {sleep 0.01;(_handles findIf {!scriptDone _x})==-1 || {diag_tickTime>=_deadline}};
+        diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] waited %1",[count _handles,{scriptDone _x} count _handles,canSuspend]];
+        diag_log format ["[REDUX_GARRISON_DIAGNOSTIC] counters %1",[A3URF_entries,A3URF_exits,A3URF_unscheduled,A3URF_contextInside]];
+        (_handles findIf {!scriptDone _x})==-1};
+    // Multiple saved roles and duplicate roles expose stale snapshot writes.
+    for "_round" from 0 to 9 do {
+        private _side=[west,east] # (_round mod 2);
+        sidesX setVariable [_marker,_side];
+        private _roles=[];for "_i" from 0 to 127 do {_roles pushBack format ["role_%1",_i mod 7]};
+        garrison setVariable [_marker,+_roles];
+        private _jobs=[];
+        isNil {{_jobs pushBack ([_x,_side,_marker,-1] spawn A3A_fnc_garrisonUpdate)} forEach _roles};
+        private _done=[_jobs] call _wait;
+        [format ["concurrent_remove_%1",_round],_done && {(garrison getVariable _marker) isEqualTo []},
+            [count (garrison getVariable _marker)]] call _check;
+        if (!_done) exitWith {};
+        garrison setVariable [_marker,[]];_jobs=[];
+        isNil {{_jobs pushBack ([_x,_side,_marker,1] spawn A3A_fnc_garrisonUpdate)} forEach _roles};
+        _done=[_jobs] call _wait;
+        private _actual=+(garrison getVariable _marker);_actual sort true;_roles sort true;
+        [format ["concurrent_add_%1",_round],_done && {_actual isEqualTo _roles},[count _actual]] call _check;
+        if (!_done) exitWith {};
+    };
+    sidesX setVariable [_marker,west];garrison setVariable [_marker,["held"]];
+    garrisonIsChanging=true;
+    private _blocked=["held",west,_marker,-1] spawn A3A_fnc_garrisonUpdate;
+    sleep 0.3;
+    ["occupied_mutex_waits",!scriptDone _blocked && {(garrison getVariable _marker) isEqualTo ["held"]}] call _check;
+    garrisonIsChanging=false;
+    private _released=[[_blocked]] call _wait;
+    ["released_mutex_completes",_released && {(garrison getVariable _marker) isEqualTo []}] call _check;
+    garrison setVariable [_marker,["keep"]];
+    ["keep",east,_marker,-1] call A3A_fnc_garrisonUpdate;
+    ["foreign_owner_unchanged",(garrison getVariable _marker) isEqualTo ["keep"] && {!garrisonIsChanging}] call _check;
+    [["a","b"],west,_marker,2] call A3A_fnc_garrisonUpdate;
+    ["array_append",(garrison getVariable _marker) isEqualTo ["keep","a","b"]] call _check;
+    private _actor="Land_HelipadEmpty_F" createVehicleLocal [0,0,0];_actor setVariable ["unitType","object_role"];
+    ["object_created",!isNull _actor] call _check;
+    [_actor,west,_marker,1] call A3A_fnc_garrisonUpdate;
+    ["object_role_added",(garrison getVariable _marker) isEqualTo ["keep","a","b","object_role"]] call _check;
+    [_actor,west,_marker,-1] call A3A_fnc_garrisonUpdate;
+    ["object_role_roundtrip",(garrison getVariable _marker) isEqualTo ["keep","a","b"]] call _check;
+    deleteVehicle _actor;
+    ["mutex_released",!garrisonIsChanging] call _check;
+    deleteVehicle garrison;deleteVehicle sidesX;
+    diag_log format ["[REDUX_GARRISON] %1",["complete",_checks,_failures]];
+};

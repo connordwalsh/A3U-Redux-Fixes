@@ -1,0 +1,22 @@
+version=12;
+class Mission {
+    addOns[]={"A3_Characters_F"};addOnsAuto[]={"A3_Characters_F"};randomSeed=16112026;
+    class Intel {briefingName="Publication transport probe";year=2026;month=11;day=16;hour=12;minute=0;};
+    class Groups {
+        items=2;
+        class Item0 {
+            side="WEST";
+            class Vehicles {items=1;class Item0 {
+                position[]={200,0,200};id=0;side="WEST";vehicle="B_Soldier_F";
+                player="PLAYER COMMANDER";leader=1;skill=0.6;text="probeObserver";
+            };};
+        };
+        class Item1 {
+            side="LOGIC";
+            class Vehicles {items=1;class Item0 {
+                position[]={210,0,200};id=1;side="LOGIC";vehicle="HeadlessClient_F";
+                player="PLAY CDG";leader=1;skill=0.6;text="publicationHC";
+            };};
+        };
+    };
+};

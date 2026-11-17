@@ -1,0 +1,9 @@
+{
+  "build.json": "68a40c7507ed499735a95df3977aa9c3ec16a87533e3a5824fd596c2c8bbd97b",
+  "fixture\\description.ext": "495c856941ecaa653ee7d3e6eaa0cad651f22c2a303a2cda9eea36113c7a46f8",
+  "fixture\\initServer.sqf": "5bce2e764c5ca96b5d602c15f67f372b9ccbbf4c54d8b7df06b7504c353c853d",
+  "fixture\\mission.sqm": "d642f7fb505589f929d9e30c76f1a56bd3a72650d36e32d57efe5904ee70dfaf",
+  "launch.json": "41d1e49355dabab476f9628c2bd99f8f061a5403ce52137c0acbc294d51539c0",
+  "probe.rpt": "c52ae01b00e51e36991c40f2290367bad133b350c556a53dd980e811cccd8360",
+  "report.json": "633860c1805c42802e7564679005fefac045627c63b7abfbfced0ba908986913"
+}
